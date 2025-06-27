@@ -8,9 +8,9 @@ let dir = 'dist';
 if (process.env.LIB_TYPE) {
     type = process.env.LIB_TYPE;
     if (type === 'umd') {
-        dir = 'umd';
+        dir = 'dist/umd';
     } else if (type === 'commonjs') {
-        dir = 'cjs';
+        dir = 'dist/cjs';
     }
 }
 

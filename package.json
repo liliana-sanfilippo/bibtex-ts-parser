@@ -1,18 +1,28 @@
 {
   "name": "@liliana-sanfilippo/bibtex-ts-parser",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "homepage": "https://github.com/liliana-sanfilippo/bibtex-ts-parser",
   "description": "A BitTeX parser implemented in TypeScript (ESNext). Transforming a BibTeX file to an object in memory or a semi-structured file on disk. Adapted from https://github.com/yepengding/bibtex-js-parser",
-  "main": "src/index.ts",
-  "types": "index.d.ts",
+  "main": "./dist/cjs/bibtex-ts-parser.js",
+  "module": "./dist/umd/bibtex-ts-parser.js",
+  "types": "./dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/umd/bibtex-ts-parser.js",
+      "require": "./dist/cjs/bibtex-ts-parser.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
     "dev": "webpack --config webpack.config.dev.ts",
     "build-commonjs": "LIB_TYPE=commonjs webpack --config webpack.config.prod.ts",
     "build-umd": "LIB_TYPE=umd webpack --config webpack.config.prod.ts",
-    "build": "npm run build-commonjs && npm run build-umd",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build": "npm run build:types && npm run build-commonjs && npm run build-umd",
     "test": "npm run dev && mocha --require source-map-support/register dist/dev/bibtex-ts-parser-dev.js"
   },
   "keywords": [

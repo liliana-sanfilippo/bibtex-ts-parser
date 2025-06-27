@@ -24,3 +24,32 @@ export const parseToJSONString = (input: string): string => {
     bib.entries.forEach(entry => delete entry.raw);
     return JSON.stringify(parseBibToJSON(bib));
 }
+
+export interface Entry {
+    id: string,
+    type: string,
+    raw: string,
+    title: string,
+    author?: string,
+    editor?: string,
+    booktitle?: string,
+    publisher?: string,
+    school?: string,
+    address?: string,
+    year?: string | number,
+    month?: string,
+    pages?: string,
+    journal?: string,
+    volume?: string,
+    number?: string | number,
+    series?: string,
+    doi?: string,
+    issn?: string,
+    url?: string,
+    urldate?: string,
+    language?: string,
+    copyright?: string,
+    note?: string,
+    keyword?: string,
+    abstract?: string
+}
