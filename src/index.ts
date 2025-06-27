@@ -1,5 +1,6 @@
 import {parse} from "./bibtex_parser";
 import {parseBibToJSON} from "./bibtex_generator";
+import {Bib, FullEntry} from "./core/type";
 
 /**
  * Parse BibTeX string to JSON object
@@ -7,8 +8,8 @@ import {parseBibToJSON} from "./bibtex_generator";
  * @param input BibTeX string
  * @returns {*} BibTeX JSON object
  */
-export const parseToJSON = (input) => {
-    const bib = parse(input);
+export const parseToJSON = (input: string): FullEntry[] => {
+    const bib: Bib = parse(input);
     return parseBibToJSON(bib);
 }
 
@@ -18,7 +19,7 @@ export const parseToJSON = (input) => {
  * @param input BibTeX string
  * @returns {string} BibTeX JSON string without raw texts
  */
-export const parseToJSONString = (input) => {
+export const parseToJSONString = (input: string): string => {
     const bib = parse(input);
     bib.entries.forEach(entry => delete entry.raw);
     return JSON.stringify(parseBibToJSON(bib));

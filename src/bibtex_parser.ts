@@ -1,8 +1,7 @@
-import antlr4 from 'antlr4';
-import BibTeXLexer from './base/BibTeXLexer.js';
-import BibTeX from './base/BibTeX.js';
+import {BibTeXLexer} from './base/BibTeXLexer';
+import {BibTeX} from './base/BibTeX';
 import BibVisitor from './core/bib_visitor'
-
+import {CharStreams, CommonTokenStream} from 'antlr4ts';
 
 /**
  * Parse to a bib object
@@ -10,7 +9,7 @@ import BibVisitor from './core/bib_visitor'
  * @param input
  * @returns {{entries: []}}
  */
-export function parse(input) {
+export function parse(input: string) {
     // Get parse tree
     const parseTree = getParseTree(input);
 
@@ -21,11 +20,11 @@ export function parse(input) {
     return bibVisitor.bib;
 }
 
-const getParseTree = (input) => {
-    const chars = new antlr4.InputStream(input);
+const getParseTree = (input: string) => {
+    const chars = CharStreams.fromString(input);
     const lexer = new BibTeXLexer(chars);
-    const tokens = new antlr4.CommonTokenStream(lexer);
+    const tokens = new CommonTokenStream(lexer);
     const parser = new BibTeX(tokens);
-    parser.buildParseTrees = true;
+    parser.buildParseTree = true;
     return parser.bibTex();
 }

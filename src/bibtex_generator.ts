@@ -1,4 +1,4 @@
-import {ValueType} from "./core/type";
+import {ValueType, Bib, FullEntry} from "./core/type";
 
 /**
  * Parse bib object to JSON object
@@ -6,19 +6,21 @@ import {ValueType} from "./core/type";
  * @param bib
  * @returns {*}
  */
-const parseBibToJSON = (bib) => {
-    return bib.entries.map(entry => {
-        const entryJSON = {
+const parseBibToJSON = (bib: Bib): FullEntry[] => {
+    return bib.entries.map(entry=> {
+        const entryJSON: FullEntry = {
             id: entry.id,
             type: entry.type,
-            raw: entry.raw
+            raw: entry.raw,
+            fields: []
         }
         entry.fields.forEach(field => {
             if (field.type === ValueType.STRING) {
-                entryJSON[field.key] = toPlainString(field.value);
+                entryJSON.fields.push({key: field.key, type: ValueType.STRING,  value: field.value});
             } else if (field.type === ValueType.INTEGER) {
-                entryJSON[field.key] = parseInt(field.value);
+                entryJSON.fields.push({key: field.key, type: ValueType.INTEGER,  value: field.value});
             }
+
         })
         return entryJSON
     })
@@ -31,7 +33,7 @@ const parseBibToJSON = (bib) => {
  * @param str BibTeX string
  * @returns {string} plain string
  */
-const toPlainString = (str) => {
+const toPlainString = (str: string) => {
     return str.replaceAll(/[{}]/g, "").replace("\"", "\\\"");
 }
 

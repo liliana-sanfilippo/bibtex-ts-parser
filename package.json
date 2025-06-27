@@ -1,41 +1,50 @@
 {
-  "name": "@yepengding/bibtex-js-parser",
+  "name": "@liliana-sanfilippo/bibtex-js-parser",
   "version": "1.1.6",
-  "homepage": "https://github.com/yepengding/bibtex-js-parser",
-  "description": "A BitTeX parser implemented in JavaScript (ES6). Transforming a BibTeX file to an object in memory or a semi-structured file on disk.",
-  "main": "./index.js",
+  "homepage": "https://github.com/LS22UB/bibtex-ts-parser",
+  "description": "A BitTeX parser implemented in TypeScript (ESNext). Transforming a BibTeX file to an object in memory or a semi-structured file on disk. Adapted from https://github.com/yepengding/bibtex-js-parser",
+  "main": "idx.ts",
   "types": "./index.d.ts",
   "scripts": {
-    "dev": "webpack --config webpack.config.dev.js",
-    "build-commonjs": "LIB_TYPE=commonjs webpack --config webpack.config.prod.js",
-    "build-umd": "LIB_TYPE=umd webpack --config webpack.config.prod.js",
+    "dev": "webpack --config webpack.config.dev.ts",
+    "build-commonjs": "LIB_TYPE=commonjs webpack --config webpack.config.prod.ts",
+    "build-umd": "LIB_TYPE=umd webpack --config webpack.config.prod.ts",
     "build": "npm run build-commonjs && npm run build-umd",
-    "test": "npm run dev && mocha --require source-map-support/register dist/dev/bibtex-js-parser-dev.js"
+    "test": "npm run dev && mocha --require source-map-support/register dist/dev/bibtex-ts-parser-dev.ts"
   },
   "keywords": [
     "bibtex",
     "parser"
   ],
-  "author": "Yepeng Ding",
+  "author": "Liliana Sanfilippo",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yepengding/bibtex-js-parser"
+    "url": "https://github.com/LS22UB/bibtex-ts-parser"
   },
   "bugs": {
-    "url": "https://github.com/yepengding/bibtex-js-parser/issues"
+    "url": "https://github.com/LS22UB/bibtex-ts-parser/issues"
   },
   "dependencies": {
-    "antlr4": "^4.10.1"
+    "antlr4ts": "^0.5.0-alpha.4",
+    "assert": "^2.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.6",
-    "@babel/preset-env": "^7.18.6",
-    "babel-loader": "^8.2.5",
+    "@babel/core": "^7.27.7",
+    "@babel/preset-env": "^7.27.2",
+    "@types/chai": "^5.2.2",
+    "@types/jest": "^30.0.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^24.0.4",
+    "antlr4ts-cli": "^0.5.0-alpha.4",
+    "babel-loader": "^8.4.1",
     "chai": "^4.3.6",
     "glob": "^8.0.3",
-    "mocha": "^10.0.0",
+    "mocha": "^10.8.2",
     "source-map-support": "^0.5.21",
+    "ts-loader": "^9.5.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
     "webpack": "^5.73.0",
     "webpack-cli": "^4.10.0",
     "webpack-license-plugin": "^4.2.2"

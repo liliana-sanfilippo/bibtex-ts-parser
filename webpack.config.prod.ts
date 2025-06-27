@@ -16,7 +16,7 @@ if (process.env.LIB_TYPE) {
 
 module.exports = {
     mode: 'production',
-    entry: './src/index.js',
+    entry: './src/idx.ts',
     output: {
         filename: 'bibtex-js-parser.js',
         library: {
@@ -31,22 +31,30 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.ts$/,
+                exclude: /node_modules/,
+                use: 'ts-loader',
+            },
+            {
                 test: /\.m?js$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
                     options: {
                         presets: [
-                            ['@babel/preset-env', {targets: "defaults"}]
+                            ['@babel/preset-env', { targets: "defaults" }]
                         ]
                     }
                 }
             }
         ]
     },
+
     resolve: {
+        extensions: ['.ts', '.js'],
         fallback: {
-            fs: false
+            fs: false,
+            assert: require.resolve('assert/')
         }
     },
 

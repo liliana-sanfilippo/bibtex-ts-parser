@@ -131,7 +131,7 @@ Build a CommonJS script to `dist/dev/bibtex-js-parser-dev.js` with source map.
 npm run dev
 ```
 
-Configuration is changeable in `.webpack.config.dev.js`.
+Configuration is changeable in `.webpack.config.dev.ts`.
 
 ### For Test
 
@@ -149,7 +149,7 @@ Build a UMD script to `umd/bibtex-js-parser.js` and a CommonJS script to `cjs/bi
 npm run build
 ```
 
-Configuration is changeable in `.webpack.config.prod.js`.
+Configuration is changeable in `.webpack.config.prod.ts`.
 
 ## Usage
 
