@@ -7,6 +7,7 @@ describe('Parser', function () {
         it('should return a correct bib object', function () {
             const bib = parse(MyPublications);
             expect(bib).to.be.not.null;
+            console.log(JSON.stringify(bib, null, 2));
             const entry1 = bib.entries[1];
             expect(entry1).to.be.not.null;
             expect(entry1.type).to.equal("inproceedings");

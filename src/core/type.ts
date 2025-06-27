@@ -1,19 +1,3 @@
-export const EntryType = {
-    ARTICLE: 'article',
-    BOOK: 'book',
-    BOOKLET: 'booklet',
-    INBOOK: 'inbook',
-    INCOLLECTION: 'incollection',
-    INPROCEEDINGS: 'inproceedings',
-    PROCEEDINGS: 'proceedings',
-    MANUAL: 'manual',
-    MASTERTHESIS: 'masterthesis',
-    PHDTHESIS: 'phdthesis',
-    MISC: 'misc',
-    TECHREPORT: 'techreport',
-    UNPUBLISHED: 'unpublished'
-}
-
 export enum ValueType {
     INTEGER= 'Integer',
     STRING= 'String'
@@ -55,7 +39,7 @@ export enum EntryTypeEnum {
  export interface EntryJSON {
      id: string;
      type: string;
-     raw?: string;   // raw scheint optional zu sein (falls undefined möglich)
-     [key: string]: string | number | undefined; // dynamische Felder, Werte sind string oder number
+     raw?: string;
+     [key: string]: string | number | undefined;
  }
 

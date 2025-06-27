@@ -1,7 +1,7 @@
 import {BibTeXLexer} from './base/BibTeXLexer';
 import {BibTeX} from './base/BibTeX';
-import BibVisitor from './core/bib_visitor'
 import {CharStreams, CommonTokenStream} from 'antlr4ts';
+import {Visitor} from "./core/visitor";
 
 /**
  * Parse to a bib object
@@ -13,7 +13,7 @@ export function parse(input: string) {
     // Get parse tree
     const parseTree = getParseTree(input);
     // Instantiate the BibVisitor (root visitor)
-    const bibVisitor = new BibVisitor();
+    const bibVisitor = new Visitor();
     parseTree.accept(bibVisitor);
 
     return bibVisitor.bib;
