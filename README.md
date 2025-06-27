@@ -1,18 +1,14 @@
 # BibTeX JS Parser
 
-A BitTeX parser implemented in JavaScript (ES6) based on
-the [BibTeX Grammar](https://github.com/yepengding/BibTeX-Grammar).
+A BitTeX parser implemented in TypeScript (ESNext) adapted from the [bibtex js parser](https://github.com/yepengding/bibtex-js-parser) 
 
 Transforming a BibTeX file to an object in memory or a semi-structured file on disk.
 
 ## Features
 
 - [x] Full (insensitive-case) entry types support
-- [x] To a JSON object
-- [x] To a JSON string
 - [x] Browser support
 - [x] NPM support
-- [x] Typing support for TypeScript projects
 
 ## Demo
 
@@ -81,47 +77,16 @@ Output:
 
 ### NPM
 
-1. Install `bibtex-js-parser` from [npm registry](https://www.npmjs.com/package/bibtex-js-parser).
 
-```shell
-npm i bibtex-js-parser
-```
-
-2. Import `BibtexParser`.
-
-```javascript
-import {BibtexParser} from "bibtex-js-parser";
-```
-
-3. Parse a BibTeX string.
-
-```javascript
-const bibJSON = BibtexParser.parseToJSON(input);
-const bibJSONString = BibtexParser.parseToJSONString(input);
-```
 
 ### In-Browser Use
 
-1. Include `bibtex-js-parser.js` from [CDN](https://unpkg.com/bibtex-js-parser/umd/bibtex-js-parser.js).
-
-```html
-<script src="https://unpkg.com/bibtex-js-parser/umd/bibtex-js-parser.js"></script>
-```
-
-2. Use exposed functions.
-
-```html
-<script>
-    const bibJSON = BibtexParser.parseToJSON(input);
-    const bibJSONString = BibtexParser.parseToJSONString(input);
-</script>
-```
 
 ## Build
 
 Environment
 
-- Node.js v17.3.1
+I used Node.js v20.19.3
 
 ### For Dev
 
@@ -143,19 +108,11 @@ npm run test
 
 ### For Production
 
-Build a UMD script to `umd/bibtex-js-parser.js` and a CommonJS script to `cjs/bibtex-js-parser.js`.
-
-```shell
-npm run build
-```
 
 Configuration is changeable in `.webpack.config.prod.ts`.
 
 ## Usage
 
-1. Build `bibtex-js-parser.js` for production.
-2. Import `bibtex-js-parser.js` in your project.
-3. Use exposed functions `parseToJSON` or `parseToJSONString` under namespace `BibtexParser`.
 
 ## Related Projects
 
