@@ -1,7 +1,10 @@
 {
   "name": "@liliana-sanfilippo/bibtex-ts-parser",
-  "version": "1.0.0",
-  "homepage": "https://github.com/LS22UB/bibtex-ts-parser",
+  "version": "0.1.0",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "homepage": "https://github.com/liliana-sanfilippo/bibtex-ts-parser",
   "description": "A BitTeX parser implemented in TypeScript (ESNext). Transforming a BibTeX file to an object in memory or a semi-structured file on disk. Adapted from https://github.com/yepengding/bibtex-js-parser",
   "main": "src/index.ts",
   "types": "index.d.ts",
@@ -20,10 +23,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/LS22UB/bibtex-ts-parser"
+    "url": "https://github.com/liliana-sanfilippo/bibtex-ts-parser"
   },
   "bugs": {
-    "url": "https://github.com/LS22UB/bibtex-ts-parser/issues"
+    "url": "https://github.com/liliana-sanfilippo/bibtex-ts-parser/issues"
   },
   "dependencies": {
     "antlr4ts": "^0.5.0-alpha.4",
