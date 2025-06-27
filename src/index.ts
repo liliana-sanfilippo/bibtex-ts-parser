@@ -1,6 +1,6 @@
 import {parse} from "./bibtex_parser";
 import {parseBibToJSON} from "./bibtex_generator";
-import {Bib, FullEntry} from "./core/type";
+import {Bib, EntryJSON, FullEntry} from "./core/type";
 
 /**
  * Parse BibTeX string to JSON object
@@ -8,7 +8,7 @@ import {Bib, FullEntry} from "./core/type";
  * @param input BibTeX string
  * @returns {*} BibTeX JSON object
  */
-export const parseToJSON = (input: string): FullEntry[] => {
+export const parseToJSON = (input: string): EntryJSON[] => {
     const bib: Bib = parse(input);
     return parseBibToJSON(bib);
 }

@@ -1,61 +1,25 @@
 import BibTeXVisitor from "../base/BibTeXVisitor";
 import EntryVisitor from "./entry_visitor";
-import {Bib, Entries, FullEntry} from "./type";
-import {ArticleContext, BibTexContext, BookContext, BookletContext,
-    EntryContext,
-    FieldContext,
-    InbookContext,
-    IncollectionContext,
-    InproceedingsContext,
-    KeyContext,
-    ManualContext,
-    MastersthesisContext,
-    MiscContext,
-    PhdthesisContext,
-    ProceedingsContext,
-    TechreportContext,
-    UnpublishedContext,
-    ValueContext
+import {Bib} from "./type";
+import {
+    EntryContext
 } from "../base/BibTeX";
-import {ErrorNode} from "antlr4ts/tree/ErrorNode";
-import {ParseTree} from "antlr4ts/tree/ParseTree";
 import {RuleNode} from "antlr4ts/tree/RuleNode";
-import {TerminalNode} from "antlr4ts/tree/TerminalNode";
+import {AbstractParseTreeVisitor} from "antlr4ts/tree";
 
 /**
  * Bib Visitor
  *
  * @author Yepeng Ding
  */
-export default class BibVisitor implements BibTeXVisitor<FullEntry> {
-    visitBibTex?: ((ctx: BibTexContext) => FullEntry) | undefined;
-    visitField?: ((ctx: FieldContext) => FullEntry) | undefined;
-    visitKey?: ((ctx: KeyContext) => FullEntry) | undefined;
-    visitValue?: ((ctx: ValueContext) => FullEntry) | undefined;
-    visitArticle?: ((ctx: ArticleContext) => FullEntry) | undefined;
-    visitBook?: ((ctx: BookContext) => FullEntry) | undefined;
-    visitBooklet?: ((ctx: BookletContext) => FullEntry) | undefined;
-    visitInbook?: ((ctx: InbookContext) => FullEntry) | undefined;
-    visitIncollection?: ((ctx: IncollectionContext) => FullEntry) | undefined;
-    visitInproceedings?: ((ctx: InproceedingsContext) => FullEntry) | undefined;
-    visitProceedings?: ((ctx: ProceedingsContext) => FullEntry) | undefined;
-    visitManual?: ((ctx: ManualContext) => FullEntry) | undefined;
-    visitMastersthesis?: ((ctx: MastersthesisContext) => FullEntry) | undefined;
-    visitPhdthesis?: ((ctx: PhdthesisContext) => FullEntry) | undefined;
-    visitMisc?: ((ctx: MiscContext) => FullEntry) | undefined;
-    visitTechreport?: ((ctx: TechreportContext) => FullEntry) | undefined;
-    visitUnpublished?: ((ctx: UnpublishedContext) => FullEntry) | undefined;
-    visit(tree: ParseTree): FullEntry {
-        throw new Error("Method not implemented.");
+export default class BibVisitor extends  AbstractParseTreeVisitor<any>  implements BibTeXVisitor<any>{
+
+    visitChildren(node: RuleNode): any {
+        return super.visitChildren(node);
     }
-    visitChildren(node: RuleNode): FullEntry {
-        throw new Error("Method not implemented.");
-    }
-    visitTerminal(node: TerminalNode): FullEntry {
-        throw new Error("Method not implemented.");
-    }
-    visitErrorNode(node: ErrorNode): FullEntry {
-        throw new Error("Method not implemented.");
+
+    protected defaultResult(): any {
+        return null
     }
 
     #entryVisitor = new EntryVisitor();

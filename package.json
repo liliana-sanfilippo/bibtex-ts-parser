@@ -10,7 +10,7 @@
     "build-commonjs": "LIB_TYPE=commonjs webpack --config webpack.config.prod.ts",
     "build-umd": "LIB_TYPE=umd webpack --config webpack.config.prod.ts",
     "build": "npm run build-commonjs && npm run build-umd",
-    "test": "npm run dev && mocha --require source-map-support/register dist/dev/bibtex-ts-parser-dev.ts"
+    "test": "npm run dev && mocha --require source-map-support/register dist/dev/bibtex-ts-parser-dev.js"
   },
   "keywords": [
     "bibtex",

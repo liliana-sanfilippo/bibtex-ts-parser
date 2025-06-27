@@ -12,7 +12,6 @@ import {CharStreams, CommonTokenStream} from 'antlr4ts';
 export function parse(input: string) {
     // Get parse tree
     const parseTree = getParseTree(input);
-
     // Instantiate the BibVisitor (root visitor)
     const bibVisitor = new BibVisitor();
     parseTree.accept(bibVisitor);

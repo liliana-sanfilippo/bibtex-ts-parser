@@ -1,4 +1,4 @@
-import {ValueType, Bib, FullEntry} from "./core/type";
+import {ValueType, Bib, FullEntry, EntryJSON, Field} from "./core/type";
 
 /**
  * Parse bib object to JSON object
@@ -6,21 +6,21 @@ import {ValueType, Bib, FullEntry} from "./core/type";
  * @param bib
  * @returns {*}
  */
-const parseBibToJSON = (bib: Bib): FullEntry[] => {
+const parseBibToJSON = (bib: Bib): EntryJSON[] => {
     return bib.entries.map(entry=> {
-        const entryJSON: FullEntry = {
+        const entryJSON: EntryJSON = {
             id: entry.id,
             type: entry.type,
-            raw: entry.raw,
-            fields: []
+            raw: entry.raw
         }
-        entry.fields.forEach(field => {
-            if (field.type === ValueType.STRING) {
-                entryJSON.fields.push({key: field.key, type: ValueType.STRING,  value: field.value});
-            } else if (field.type === ValueType.INTEGER) {
-                entryJSON.fields.push({key: field.key, type: ValueType.INTEGER,  value: field.value});
+        entry.fields.forEach((field: Field) => {
+            if (field.type === ValueType.INTEGER && typeof field.value === 'string') {
+                entryJSON[field.key] = parseInt(field.value);
+            } else if (field.type === ValueType.INTEGER && typeof field.value === 'number') {
+                entryJSON[field.key] = field.value; // ist schon eine Zahl
+            } else if (field.type === ValueType.STRING && typeof field.value === 'string') {
+                entryJSON[field.key] = toPlainString(field.value);
             }
-
         })
         return entryJSON
     })

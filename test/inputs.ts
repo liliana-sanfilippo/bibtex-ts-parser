@@ -1,3 +1,5 @@
+import {Bib} from "../src/core/type";
+
 export const MyPublications = `
 @inproceedings{ding_derepo_2020,
 \ttitle = {Derepo: a distributed privacy-preserving data repository with decentralized access control for smart health},
@@ -21,42 +23,44 @@ export const MyPublications = `
 \tpages = {798--807},
 }
 
+`
+
+/*
 @inproceedings{ding_bloccess_2020,
-\ttitle = {Bloccess: towards fine-grained access control using blockchain in a distributed untrustworthy environment},
-\tcopyright = {All rights reserved},
-\tisbn = {1-72811-035-1},
-\tbooktitle = {2020 8th {IEEE} {International} {Conference} on {Mobile} {Cloud} {Computing}, {Services}, and {Engineering} ({MobileCloud})},
-\tpublisher = {IEEE},
-\tauthor = {Ding, Yepeng and Sato, Hiroyuki},
-\tyear = {2020},
-\tpages = {17--22},
+	title = {Bloccess: towards fine-grained access control using blockchain in a distributed untrustworthy environment},
+	copyright = {All rights reserved},
+	isbn = {1-72811-035-1},
+	booktitle = {2020 8th {IEEE} {International} {Conference} on {Mobile} {Cloud} {Computing}, {Services}, and {Engineering} ({MobileCloud})},
+	publisher = {IEEE},
+	author = {Ding, Yepeng and Sato, Hiroyuki},
+	year = {2020},
+	pages = {17--22},
 }
 
 @inproceedings{ding_formalizing_2020,
-\ttitle = {Formalizing and {Verifying} {Decentralized} {Systems} with {Extended} {Concurrent} {Separation} {Logic}},
-\tcopyright = {All rights reserved},
-\tbooktitle = {International {Conference} on {Algorithms} and {Architectures} for {Parallel} {Processing}},
-\tpublisher = {Springer},
-\tauthor = {Ding, Yepeng and Sato, Hiroyuki},
-\tyear = {2020},
-\tpages = {480--494},
+	title = {Formalizing and {Verifying} {Decentralized} {Systems} with {Extended} {Concurrent} {Separation} {Logic}},
+	copyright = {All rights reserved},
+	booktitle = {International {Conference} on {Algorithms} and {Architectures} for {Parallel} {Processing}},
+	publisher = {Springer},
+	author = {Ding, Yepeng and Sato, Hiroyuki},
+	year = {2020},
+	pages = {480--494},
 }
 
 @article{ding_formalism-driven_2022,
-\ttitle = {Formalism-{Driven} {Development}: {Concepts}, {Taxonomy}, and {Practice}},
-\tvolume = {12},
-\tcopyright = {All rights reserved},
-\tissn = {2076-3417},
-\turl = {https://www.mdpi.com/2076-3417/12/7/3415},
-\tdoi = {10.3390/app12073415},
-\tnumber = {7},
-\tjournal = {Applied Sciences},
-\tauthor = {Ding, Yepeng and Sato, Hiroyuki},
-\tyear = {2022},
-}
-`
+	title = {Formalism-{Driven} {Development}: {Concepts}, {Taxonomy}, and {Practice}},
+	volume = {12},
+	copyright = {All rights reserved},
+	issn = {2076-3417},
+	url = {https://www.mdpi.com/2076-3417/12/7/3415},
+	doi = {10.3390/app12073415},
+	number = {7},
+	journal = {Applied Sciences},
+	author = {Ding, Yepeng and Sato, Hiroyuki},
+	year = {2022},
+}*/
 
-export const MyPublicationsBib = {
+export const MyPublicationsBib: Bib = {
     entries: [
         {
             type: 'inproceedings',
