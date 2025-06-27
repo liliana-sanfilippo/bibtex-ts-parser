@@ -1,6 +1,6 @@
 {
   "name": "@liliana-sanfilippo/bibtex-ts-parser",
-  "version": "1.1.6",
+  "version": "1.0.0",
   "homepage": "https://github.com/LS22UB/bibtex-ts-parser",
   "description": "A BitTeX parser implemented in TypeScript (ESNext). Transforming a BibTeX file to an object in memory or a semi-structured file on disk. Adapted from https://github.com/yepengding/bibtex-js-parser",
   "main": "src/index.ts",
