@@ -11,6 +11,8 @@
     "skipLibCheck": true,
     "strict": true
   },
-  "include": ["src", "test"],
+  "include": ["src", "test",
+    "index.js"
+  ],
   "exclude": ["node_modules", "demo", "dist"]
 }

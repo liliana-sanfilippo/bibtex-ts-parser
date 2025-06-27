@@ -1,6 +1,6 @@
 import {parse} from "./bibtex_parser";
 import {parseBibToJSON} from "./bibtex_generator";
-import {Bib, EntryJSON, FullEntry} from "./core/type";
+import {Bib, EntryJSON} from "./core/type";
 
 /**
  * Parse BibTeX string to JSON object

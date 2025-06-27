@@ -1,10 +1,10 @@
 {
-  "name": "@liliana-sanfilippo/bibtex-js-parser",
+  "name": "@liliana-sanfilippo/bibtex-ts-parser",
   "version": "1.1.6",
   "homepage": "https://github.com/LS22UB/bibtex-ts-parser",
   "description": "A BitTeX parser implemented in TypeScript (ESNext). Transforming a BibTeX file to an object in memory or a semi-structured file on disk. Adapted from https://github.com/yepengding/bibtex-js-parser",
-  "main": "idx.ts",
-  "types": "./index.d.ts",
+  "main": "src/index.ts",
+  "types": "index.d.ts",
   "scripts": {
     "dev": "webpack --config webpack.config.dev.ts",
     "build-commonjs": "LIB_TYPE=commonjs webpack --config webpack.config.prod.ts",
@@ -45,7 +45,7 @@
     "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
-    "webpack": "^5.73.0",
+    "webpack": "5.94.0",
     "webpack-cli": "^4.10.0",
     "webpack-license-plugin": "^4.2.2"
   }

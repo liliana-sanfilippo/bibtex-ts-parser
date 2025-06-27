@@ -11,9 +11,7 @@ BibTeX grammar for ANTLR v4.
 
 ## Related Projects
 - [BibTeX JavaScript Parser](https://github.com/yepengding/bibtex-js-parser)
-- [BibTex Java Parser](https://github.com/yepengding/BibTeX-Java-Parser)
-
-
+-
 ---
 # References
 - https://www.bibtex.com/e/entry-types/

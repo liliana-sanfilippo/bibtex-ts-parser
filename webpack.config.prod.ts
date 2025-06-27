@@ -16,9 +16,9 @@ if (process.env.LIB_TYPE) {
 
 module.exports = {
     mode: 'production',
-    entry: './src/idx.ts',
+    entry: './src/index.ts',
     output: {
-        filename: 'bibtex-js-parser.js',
+        filename: 'bibtex-ts-parser.js',
         library: {
             name: 'BibtexParser',
             type: type
