@@ -1,6 +1,6 @@
 {
   "name": "@liliana-sanfilippo/bibtex-ts-parser",
-  "version": "0.1.11",
+  "version": "1.0.0",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
@@ -12,12 +12,13 @@
   "files": [
     "dist",
     "index.d.ts",
-    "index.js"
+    "index.js",
+    "README.md"
   ],
   "scripts": {
     "dev": "webpack --config webpack.config.dev.ts",
-    "build-commonjs": "NODE_ENV=production LIB_TYPE=commonjs ts-node --esm node_modules/webpack/bin/webpack.js --config webpack.config.prod.ts",
-    "build-umd": "NODE_ENV=production LIB_TYPE=umd ts-node --esm node_modules/webpack/bin/webpack.js --config webpack.config.prod.ts",
+    "build-commonjs": "LIB_TYPE=commonjs ts-node --esm node_modules/webpack/bin/webpack.js --config webpack.config.prod.ts",
+    "build-umd": "LIB_TYPE=umd ts-node --esm node_modules/webpack/bin/webpack.js --config webpack.config.prod.ts",
     "build": "npm run build-commonjs && npm run build-umd",
     "test": "npm run dev && mocha --require source-map-support/register dist/dev/bibtex-ts-parser-dev.js",
     "build-debug": "webpack --config webpack.config.prod.ts --mode development --devtool source-map"
@@ -25,7 +26,7 @@
   "exports": {
     ".": {
       "require": "./index.js",
-      "import": "./inde.js",
+      "import": "./index.js",
       "types": "./index.d.ts"
     }
   },

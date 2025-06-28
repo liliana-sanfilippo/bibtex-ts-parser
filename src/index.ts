@@ -25,6 +25,9 @@ export const parseToJSONString = (input: string): string => {
     return JSON.stringify(parseBibToJSON(bib));
 }
 
+/**
+ * Entry Interface to work with in TypeScript projects.
+ */
 export interface Entry {
     id: string,
     type: string,

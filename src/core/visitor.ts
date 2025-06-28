@@ -54,7 +54,6 @@ export class Visitor extends AbstractParseTreeVisitor<any> implements BibTeXVisi
      * @returns The fully constructed BibTeX entry object.
      */
     visitEntry(ctx: EntryContext): FullEntry {
-        console.log("VISIT ENTRY");
         const entry = this.getEntryType(ctx)
         this._bib.entries.push(entry);
         return entry;
@@ -118,7 +117,6 @@ export class Visitor extends AbstractParseTreeVisitor<any> implements BibTeXVisi
      * @returns The constructed `FullEntry`.
      */
     newEntry(type: EntryTypeEnum, ctx: ParserRuleContext): FullEntry {
-        console.log("NEW ENTRY")
         const idNode = (ctx as any).IDENTIFIER?.();
         const id = Array.isArray(idNode)
             ? idNode[0].symbol.text
@@ -128,7 +126,7 @@ export class Visitor extends AbstractParseTreeVisitor<any> implements BibTeXVisi
         ) ?? '';
 
         const fields = (ctx as any).field?.().map((f: any) => f.accept(this)) ?? [];
-        console.log("type: " + type + ", id: " + id + "   fields: " + fields[0].key);
+
         return {type: type, id: id, raw: raw, fields: fields};
     }
 

@@ -4,21 +4,25 @@ import {CharStreams, CommonTokenStream} from 'antlr4ts';
 import {Visitor} from "./core/visitor";
 
 /**
- * Parse to a bib object
+ * Parse to a bib object.
  *
  * @param input
  * @returns {{entries: []}}
  */
 export function parse(input: string) {
-    // Get parse tree
+
     const parseTree = getParseTree(input);
-    // Instantiate the BibVisitor (root visitor)
+
     const bibVisitor = new Visitor();
     parseTree.accept(bibVisitor);
 
     return bibVisitor.bib;
 }
 
+/**
+ * builds parse tree.
+ * @param input input to be parsed
+ */
 const getParseTree = (input: string) => {
     const chars = CharStreams.fromString(input);
     const lexer = new BibTeXLexer(chars);

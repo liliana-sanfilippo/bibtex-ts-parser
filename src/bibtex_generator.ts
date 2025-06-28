@@ -1,7 +1,7 @@
-import {ValueType, Bib, FullEntry, EntryJSON, Field} from "./core/type";
+import {ValueType, Bib, EntryJSON, Field} from "./core/type";
 
 /**
- * Parse bib object to JSON object
+ * Parse bib object to EntryJSON (JSON) object
  *
  * @param bib
  * @returns {*}

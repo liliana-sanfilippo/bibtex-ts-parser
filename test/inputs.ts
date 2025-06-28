@@ -23,9 +23,7 @@ export const MyPublications = `
 \tpages = {798--807},
 }
 
-`
 
-/*
 @inproceedings{ding_bloccess_2020,
 	title = {Bloccess: towards fine-grained access control using blockchain in a distributed untrustworthy environment},
 	copyright = {All rights reserved},
@@ -58,7 +56,7 @@ export const MyPublications = `
 	journal = {Applied Sciences},
 	author = {Ding, Yepeng and Sato, Hiroyuki},
 	year = {2022},
-}*/
+}`
 
 export const MyPublicationsBib: Bib = {
     entries: [
