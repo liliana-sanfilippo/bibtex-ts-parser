@@ -9,18 +9,49 @@ Transforming a BibTeX file to an object in memory or a semi-structured file on d
 - [x] Full (insensitive-case) entry types support
 - [x] Browser support
 - [x] NPM support
-
+- [x] Typing support for TypeScript projects
+- [x] Exportable Entry Type  for TypeScript projects
 
 ## Quickstart
 
-### NPM
+### NPM / YARN
+
+1. Install `bibtex-ts-parser` from [npm registry](https://www.npmjs.com/package/@liliana-sanfilippo/bibtex-ts-parser).
 
 ```bash
 npm install @liliana-sanfilippo/bibtex-ts-parser
 ```
 
+```bash
+yarn add @liliana-sanfilippo/bibtex-ts-parser
+```
+2. Import `BibtexParser`.
+
+```javascript
+import {BibtexParser} from from "@liliana-sanfilippo/bibtex-ts-parser";
+```
+If necessary or wanted also import Entry type to work with. 
+
+```javascript
+import {Entry} from from "@liliana-sanfilippo/bibtex-ts-parser";
+```
+
 ### In-Browser Use
 
+1. Include `bibtex-ts-parser.js` from (CDN)[https://unpkg.com/@liliana-sanfilippo/bibtex-ts-parser/dist/umd/bibtex-ts-parser.js.
+
+```html
+<script src="https://unpkg.com/@liliana-sanfilippo/bibtex-ts-parser/dist/umd/bibtex-ts-parser.js"></script>
+```
+
+2. Use exposed functions.
+
+```html
+<script>
+    const bibJSON = BibtexParser.parseToJSON(input);
+    const bibJSONString = BibtexParser.parseToJSONString(input);
+</script>
+```
 
 ## Build
 
@@ -48,6 +79,11 @@ npm run test
 
 ### For Production
 
+Build a UMD script to `dist/umd/bibtex-ts-parser.js` and a CommonJS script to `dist/cjs/bibtex-js-parser.js`.
+
+```shell
+npm run build
+```
 
 Configuration is changeable in `.webpack.config.prod.ts`.
 
@@ -56,5 +92,7 @@ Configuration is changeable in `.webpack.config.prod.ts`.
 
 ## Related Projects
 
+- [BibTeX JS Parser](https://github.com/yepengding/bibtex-js-parser/tree/main)
+- [react-bibtex-source-generator](https://github.com/liliana-sanfilippo/react-bibtex-source-generator)
 - [BibTeX Grammar](https://github.com/yepengding/BibTeX-Grammar)
 - [BibTex Java Parser](https://github.com/yepengding/BibTeX-Java-Parser)
