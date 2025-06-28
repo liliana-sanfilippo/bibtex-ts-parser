@@ -1,4 +1,4 @@
-import * as path from 'path';
+import path from 'path';
 import webpack, { Configuration } from 'webpack';
 import { LicenseWebpackPlugin } from 'license-webpack-plugin';
 const LicensePlugin: any = LicenseWebpackPlugin;
@@ -54,9 +54,6 @@ const config: Configuration = {
         ],
     },
     plugins: [
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
-        }),
         new LicensePlugin({
             perChunkOutput: false,
             outputFilename: '3rdpartylicenses.txt',
