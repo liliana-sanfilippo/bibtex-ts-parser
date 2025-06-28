@@ -1,160 +1,168 @@
-// Generated from src/grammar/BibTeX.g4 by ANTLR 4.9.0-SNAPSHOT
+// Generated from BibTeXParser.g4 by ANTLR 4.9.0-SNAPSHOT
 
 
 import { ParseTreeVisitor } from "antlr4ts/tree/ParseTreeVisitor";
 
-import { BibTexContext } from "./BibTeX";
-import { EntryContext } from "./BibTeX";
-import { FieldContext } from "./BibTeX";
-import { KeyContext } from "./BibTeX";
-import { ValueContext } from "./BibTeX";
-import { ArticleContext } from "./BibTeX";
-import { BookContext } from "./BibTeX";
-import { BookletContext } from "./BibTeX";
-import { InbookContext } from "./BibTeX";
-import { IncollectionContext } from "./BibTeX";
-import { InproceedingsContext } from "./BibTeX";
-import { ProceedingsContext } from "./BibTeX";
-import { ManualContext } from "./BibTeX";
-import { MastersthesisContext } from "./BibTeX";
-import { PhdthesisContext } from "./BibTeX";
-import { MiscContext } from "./BibTeX";
-import { TechreportContext } from "./BibTeX";
-import { UnpublishedContext } from "./BibTeX";
+import { BibTexContext } from "./BibTeXParser";
+import { EntryContext } from "./BibTeXParser";
+import { FieldContext } from "./BibTeXParser";
+import { KeyContext } from "./BibTeXParser";
+import { ValueContext } from "./BibTeXParser";
+import { ArticleContext } from "./BibTeXParser";
+import { BookContext } from "./BibTeXParser";
+import { BookletContext } from "./BibTeXParser";
+import { InbookContext } from "./BibTeXParser";
+import { IncollectionContext } from "./BibTeXParser";
+import { InproceedingsContext } from "./BibTeXParser";
+import { ProceedingsContext } from "./BibTeXParser";
+import { ManualContext } from "./BibTeXParser";
+import { MastersthesisContext } from "./BibTeXParser";
+import { PhdthesisContext } from "./BibTeXParser";
+import { MiscContext } from "./BibTeXParser";
+import { TechreportContext } from "./BibTeXParser";
+import { UnpublishedContext } from "./BibTeXParser";
+import { DatasetContext } from "./BibTeXParser";
 
 
 /**
  * This interface defines a complete generic visitor for a parse tree produced
- * by `BibTeX`.
+ * by `BibTeXParser`.
  *
  * @param <Result> The return type of the visit operation. Use `void` for
  * operations with no return type.
  */
-export default interface BibTeXVisitor<Result> extends ParseTreeVisitor<Result> {
+export interface BibTeXParserVisitor<Result> extends ParseTreeVisitor<Result> {
 	/**
-	 * Visit a parse tree produced by `BibTeX.bibTex`.
+	 * Visit a parse tree produced by `BibTeXParser.bibTex`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	visitBibTex?: (ctx: BibTexContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `BibTeX.entry`.
+	 * Visit a parse tree produced by `BibTeXParser.entry`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	visitEntry?: (ctx: EntryContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `BibTeX.field`.
+	 * Visit a parse tree produced by `BibTeXParser.field`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	visitField?: (ctx: FieldContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `BibTeX.key`.
+	 * Visit a parse tree produced by `BibTeXParser.key`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	visitKey?: (ctx: KeyContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `BibTeX.value`.
+	 * Visit a parse tree produced by `BibTeXParser.value`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	visitValue?: (ctx: ValueContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `BibTeX.article`.
+	 * Visit a parse tree produced by `BibTeXParser.article`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	visitArticle?: (ctx: ArticleContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `BibTeX.book`.
+	 * Visit a parse tree produced by `BibTeXParser.book`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	visitBook?: (ctx: BookContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `BibTeX.booklet`.
+	 * Visit a parse tree produced by `BibTeXParser.booklet`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	visitBooklet?: (ctx: BookletContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `BibTeX.inbook`.
+	 * Visit a parse tree produced by `BibTeXParser.inbook`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	visitInbook?: (ctx: InbookContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `BibTeX.incollection`.
+	 * Visit a parse tree produced by `BibTeXParser.incollection`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	visitIncollection?: (ctx: IncollectionContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `BibTeX.inproceedings`.
+	 * Visit a parse tree produced by `BibTeXParser.inproceedings`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	visitInproceedings?: (ctx: InproceedingsContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `BibTeX.proceedings`.
+	 * Visit a parse tree produced by `BibTeXParser.proceedings`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	visitProceedings?: (ctx: ProceedingsContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `BibTeX.manual`.
+	 * Visit a parse tree produced by `BibTeXParser.manual`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	visitManual?: (ctx: ManualContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `BibTeX.mastersthesis`.
+	 * Visit a parse tree produced by `BibTeXParser.mastersthesis`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	visitMastersthesis?: (ctx: MastersthesisContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `BibTeX.phdthesis`.
+	 * Visit a parse tree produced by `BibTeXParser.phdthesis`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	visitPhdthesis?: (ctx: PhdthesisContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `BibTeX.misc`.
+	 * Visit a parse tree produced by `BibTeXParser.misc`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	visitMisc?: (ctx: MiscContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `BibTeX.techreport`.
+	 * Visit a parse tree produced by `BibTeXParser.techreport`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	visitTechreport?: (ctx: TechreportContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `BibTeX.unpublished`.
+	 * Visit a parse tree produced by `BibTeXParser.unpublished`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	visitUnpublished?: (ctx: UnpublishedContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `BibTeXParser.dataset`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitDataset?: (ctx: DatasetContext) => Result;
 }
 

@@ -1,9 +1,9 @@
 import {AbstractParseTreeVisitor} from 'antlr4ts/tree/AbstractParseTreeVisitor';
-import BibTeXVisitor from "../base/BibTeXVisitor";
+import {BibTeXParserVisitor} from "../base/BibTeXParserVisitor";
 import {
     ArticleContext,
     BookContext,
-    BookletContext,
+    BookletContext, DatasetContext,
     EntryContext,
     FieldContext,
     InbookContext,
@@ -13,7 +13,7 @@ import {
     MastersthesisContext, MiscContext,
     PhdthesisContext,
     ProceedingsContext, TechreportContext, UnpublishedContext
-} from "../base/BibTeX";
+} from "../base/BibTeXParser";
 import {Bib, EntryTypeEnum, Field, FullEntry, ValueType} from "./type";
 import {ParserRuleContext} from "antlr4ts/ParserRuleContext";
 import {Interval} from "antlr4ts/misc";
@@ -25,7 +25,7 @@ import {Interval} from "antlr4ts/misc";
  *
  * @author Liliana Sanfilippo
  */
-export class Visitor extends AbstractParseTreeVisitor<any> implements BibTeXVisitor<any> {
+export class Visitor extends AbstractParseTreeVisitor<any> implements BibTeXParserVisitor<any> {
 
     /**
      * The Bib object that stores all parsed entries.
@@ -56,6 +56,7 @@ export class Visitor extends AbstractParseTreeVisitor<any> implements BibTeXVisi
     visitEntry(ctx: EntryContext): FullEntry {
         const entry = this.getEntryType(ctx)
         this._bib.entries.push(entry);
+        console.log(entry.id + " als " + entry.type);
         return entry;
     }
 
@@ -120,7 +121,7 @@ export class Visitor extends AbstractParseTreeVisitor<any> implements BibTeXVisi
         const idNode = (ctx as any).IDENTIFIER?.();
         const id = Array.isArray(idNode)
             ? idNode[0].symbol.text
-            : idNode?.symbol.text ?? 'UNKNOWN';
+            : idNode?.symbol.text ?? 'MISC';
         const raw = ctx.start.inputStream?.getText(
             Interval.of(ctx.start.startIndex, ctx.stop?.stopIndex ?? ctx.start.startIndex)
         ) ?? '';
@@ -206,6 +207,10 @@ export class Visitor extends AbstractParseTreeVisitor<any> implements BibTeXVisi
 
     visitUnpublished(ctx: UnpublishedContext) {
         return this.newEntry(EntryTypeEnum.UNPUBLISHED, ctx);
+    }
+
+    visitDataset(ctx: DatasetContext) {
+        return this.newEntry(EntryTypeEnum.DATASET, ctx);
     }
 
 }

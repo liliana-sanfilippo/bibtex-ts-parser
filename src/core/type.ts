@@ -49,7 +49,8 @@ export enum EntryTypeEnum {
     PHDTHESIS = "phdthesis",
     MISC = "misc",
     TECHREPORT = "techreport",
-    UNPUBLISHED = "unpublished"
+    UNPUBLISHED = "unpublished",
+    DATASET = "dataset",
 }
 
 /**
