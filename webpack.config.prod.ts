@@ -22,6 +22,7 @@ if (process.env.LIB_TYPE === 'commonjs') {
 const config: Configuration = {
     mode: 'production',
     entry: './src/index.ts',
+    target: 'web',
     output: {
         filename: 'bibtex-ts-parser.js',
         path: path.resolve(__dirname, 'dist', subdir),
@@ -64,6 +65,10 @@ const config: Configuration = {
             process: 'process/browser',
             Buffer: ['buffer', 'Buffer'],
         }),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify('production'),
+        }),
+
     ],
     resolve: {
         extensions: ['.ts', '.js'],
