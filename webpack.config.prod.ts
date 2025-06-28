@@ -11,26 +11,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 
-console.log('Checking imports and variables...');
-
-try {
-    console.log('path:', typeof path !== 'undefined');
-    console.log('webpack:', typeof webpack !== 'undefined');
-    console.log('LicenseWebpackPlugin:', typeof LicenseWebpackPlugin !== 'undefined');
-    console.log('require:', typeof require !== 'undefined');
-    console.log('__dirname:', __dirname);
-    console.log('__filename:', __filename);
-} catch (e) {
-    console.error('Import/require problem:', e);
-    process.exit(1); // Falls du in node arbeitest
-}
-
-console.log("VOR CONFIG")
-console.log('NODE_ENV:', process.env.NODE_ENV);
-console.log('LIB_TYPE:', process.env.LIB_TYPE);
-
-
-console.log('Using ProvidePlugin to inject process and Buffer');
 
 let type: 'umd' | 'commonjs' = 'umd';
 let subdir = 'umd';
@@ -98,9 +78,5 @@ const config: Configuration = {
     },
 };
 
-console.log("NACH CONFIG")
-console.log('NODE_ENV:', process.env.NODE_ENV);
-console.log('LIB_TYPE:', process.env.LIB_TYPE);
-console.log('Webpack build target:', config.target);
 
 export default config;

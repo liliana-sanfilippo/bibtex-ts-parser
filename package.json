@@ -16,8 +16,8 @@
   ],
   "scripts": {
     "dev": "webpack --config webpack.config.dev.ts",
-    "build-commonjs": "LIB_TYPE=commonjs ts-node --esm node_modules/webpack/bin/webpack.js --config webpack.config.prod.ts",
-    "build-umd": "LIB_TYPE=umd ts-node --esm node_modules/webpack/bin/webpack.js --config webpack.config.prod.ts",
+    "build-commonjs": "NODE_ENV=production LIB_TYPE=commonjs ts-node --esm node_modules/webpack/bin/webpack.js --config webpack.config.prod.ts",
+    "build-umd": "NODE_ENV=production LIB_TYPE=umd ts-node --esm node_modules/webpack/bin/webpack.js --config webpack.config.prod.ts",
     "build": "npm run build-commonjs && npm run build-umd",
     "test": "npm run dev && mocha --require source-map-support/register dist/dev/bibtex-ts-parser-dev.js",
     "build-debug": "webpack --config webpack.config.prod.ts --mode development --devtool source-map"
@@ -43,10 +43,7 @@
     "url": "https://github.com/liliana-sanfilippo/bibtex-ts-parser/issues"
   },
   "dependencies": {
-    "antlr4ts": "^0.5.0-alpha.4",
-    "assert": "^2.1.0",
-    "buffer": "^6.0.3",
-    "process": "^0.11.10"
+    "antlr4ts": "^0.5.0-alpha.4"
   },
   "devDependencies": {
     "@babel/core": "^7.27.7",
@@ -55,11 +52,14 @@
     "@types/mocha": "^10.0.10",
     "@types/node": "^18.19.113",
     "antlr4ts-cli": "^0.5.0-alpha.4",
+    "assert": "^2.1.0",
     "babel-loader": "^8.4.1",
+    "buffer": "^6.0.3",
     "chai": "^4.3.6",
     "glob": "^8.0.3",
     "license-webpack-plugin": "^4.0.2",
     "mocha": "^10.8.2",
+    "process": "^0.11.10",
     "source-map-support": "^0.5.21",
     "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
