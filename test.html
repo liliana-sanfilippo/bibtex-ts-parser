@@ -9,6 +9,8 @@
 <script>
     // Beispiel: Prüfe, ob process da ist
     console.log('process:', typeof process !== 'undefined' ? process : 'process ist undefined');
+    console.log('Buffer:', typeof Buffer !== 'undefined' ? Buffer : 'UNDEFINED');
+    console.log('BibtexParser:', typeof BibtexParser !== 'undefined' ? BibtexParser : 'NOT FOUND');
 
     // Beispiel: Benutze deine Library, falls sie global exportiert wird
     if (window.BibtexParser) {
