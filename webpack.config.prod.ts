@@ -1,8 +1,11 @@
 import * as path from 'path';
-import { Configuration } from 'webpack';
+import webpack, { Configuration } from 'webpack';
 import { LicenseWebpackPlugin } from 'license-webpack-plugin';
 const LicensePlugin: any = LicenseWebpackPlugin;
 import { fileURLToPath } from 'url';
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -52,10 +55,17 @@ const config: Configuration = {
         extensions: ['.ts', '.js'],
         fallback: {
             fs: false,
-            assert: "assert",
+            assert: require.resolve('assert/'),
+            process: require.resolve('process/browser'),
+            buffer: require.resolve('buffer/'),
         },
     },
-    plugins: [new LicensePlugin({
+    plugins: [
+        new webpack.ProvidePlugin({
+            process: 'process/browser',
+            Buffer: ['buffer', 'Buffer'],
+        }),
+        new LicensePlugin({
         perChunkOutput: false,
         outputFilename: '3rdpartylicenses.txt',
     })],

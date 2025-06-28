@@ -1,15 +1,14 @@
 {
   "name": "@liliana-sanfilippo/bibtex-ts-parser",
-  "version": "0.1.6",
+  "version": "0.1.10",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
   "homepage": "https://github.com/liliana-sanfilippo/bibtex-ts-parser",
   "description": "A BitTeX parser implemented in TypeScript (ESNext). Transforming a BibTeX file to an object in memory or a semi-structured file on disk. Adapted from https://github.com/yepengding/bibtex-js-parser",
-  "main": "./dist/cjs/bibtex-ts-parser.js",
-  "module": "./dist/umd/bibtex-ts-parser.js",
-  "types": "./dist/index.d.ts",
+  "main": "./index.js",
+  "types": "./index.d.ts",
   "files": [
     "dist",
     "index.d.ts",
@@ -24,9 +23,9 @@
   },
   "exports": {
     ".": {
-      "require": "./dist/cjs/bibtex-ts-parser.js",
-      "import": "./dist/umd/bibtex-ts-parser.js",
-      "types": "./dist/src/index.d.ts"
+      "require": "./index.js",
+      "import": "./inde.js",
+      "types": "./index.d.ts"
     }
   },
   "keywords": [
@@ -44,7 +43,9 @@
   },
   "dependencies": {
     "antlr4ts": "^0.5.0-alpha.4",
-    "assert": "^2.1.0"
+    "assert": "^2.1.0",
+    "buffer": "^6.0.3",
+    "process": "^0.11.10"
   },
   "devDependencies": {
     "@babel/core": "^7.27.7",
