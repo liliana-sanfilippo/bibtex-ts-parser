@@ -1,6 +1,6 @@
 # BibTeX TS Parser
 
-I adapted the JS Parser from [bibtex js parser](https://github.com/yepengding/bibtex-js-parser). Now in TypeScript (ESNext).
+BibTeX TS Parser based on the JS Parser from [bibtex js parser](https://github.com/yepengding/bibtex-js-parser). Now in TypeScript (ESNext).
 
 Transforming a BibTeX file to an object in memory or a semi-structured file on disk.
 
