@@ -1,6 +1,11 @@
 # BibTeX TS Parser
 
+![npm](https://img.shields.io/npm/v/@liliana-sanfilippo/bibtex-ts-parser) 	![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)
+
 BibTeX TS Parser based on the JS Parser from [bibtex js parser](https://github.com/yepengding/bibtex-js-parser). Now in TypeScript (ESNext).
+
+[![NPM](https://nodei.co/npm/@liliana-sanfilippo/bibtex-ts-parser.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/@liliana-sanfilippo/bibtex-ts-parser/)
+
 
 Transforming a BibTeX file to an object in memory or a semi-structured file on disk.
 
@@ -11,6 +16,7 @@ Transforming a BibTeX file to an object in memory or a semi-structured file on d
 - [x] NPM support
 - [x] Typing support for TypeScript projects
 - [x] Exportable Entry Type  for TypeScript projects
+- [x] Includes inofficial type dataset 
 
 ## Quickstart
 
