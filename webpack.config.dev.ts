@@ -5,6 +5,7 @@ module.exports = {
     mode: 'development',
     devtool: "source-map",
     entry: glob.sync('./test/**/*.test.ts'),
+    target: 'web',
     module: {
         rules: [
             {

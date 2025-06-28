@@ -10,6 +10,7 @@ const require = createRequire(import.meta.url);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+console.log('Using ProvidePlugin to inject process and Buffer');
 
 let type: 'umd' | 'commonjs' = 'umd';
 let subdir = 'umd';
@@ -51,24 +52,29 @@ const config: Configuration = {
             },
         ],
     },
-    resolve: {
-        extensions: ['.ts', '.js'],
-        fallback: {
-            fs: false,
-            assert: require.resolve('assert/'),
-            process: require.resolve('process/browser'),
-            buffer: require.resolve('buffer/'),
-        },
-    },
     plugins: [
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+        }),
+        new LicensePlugin({
+            perChunkOutput: false,
+            outputFilename: '3rdpartylicenses.txt',
+        }),
         new webpack.ProvidePlugin({
             process: 'process/browser',
             Buffer: ['buffer', 'Buffer'],
         }),
-        new LicensePlugin({
-        perChunkOutput: false,
-        outputFilename: '3rdpartylicenses.txt',
-    })],
+    ],
+    resolve: {
+        extensions: ['.ts', '.js'],
+        fallback: {
+            fs: false,
+            path: require.resolve('path-browserify'),
+            assert: require.resolve('assert/'),
+            buffer: require.resolve('buffer/'),
+            process: require.resolve('process/browser'),
+        },
+    },
 };
 
 export default config;

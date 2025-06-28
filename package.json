@@ -1,6 +1,6 @@
 {
   "name": "@liliana-sanfilippo/bibtex-ts-parser",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
@@ -19,7 +19,8 @@
     "build-commonjs": "LIB_TYPE=commonjs ts-node --esm node_modules/webpack/bin/webpack.js --config webpack.config.prod.ts",
     "build-umd": "LIB_TYPE=umd ts-node --esm node_modules/webpack/bin/webpack.js --config webpack.config.prod.ts",
     "build": "npm run build-commonjs && npm run build-umd",
-    "test": "npm run dev && mocha --require source-map-support/register dist/dev/bibtex-ts-parser-dev.js"
+    "test": "npm run dev && mocha --require source-map-support/register dist/dev/bibtex-ts-parser-dev.js",
+    "build-debug": "webpack --config webpack.config.prod.ts --mode development --devtool source-map"
   },
   "exports": {
     ".": {
@@ -45,6 +46,7 @@
     "antlr4ts": "^0.5.0-alpha.4",
     "assert": "^2.1.0",
     "buffer": "^6.0.3",
+    "path-browserify": "^1.0.1",
     "process": "^0.11.10"
   },
   "devDependencies": {

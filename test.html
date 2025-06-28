@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <title>Test Bibtex Parser</title>
+</head>
+<body>
+<script src="./dist/umd/bibtex-ts-parser.js"></script>
+<script>
+    // Beispiel: Prüfe, ob process da ist
+    console.log('process:', typeof process !== 'undefined' ? process : 'process ist undefined');
+
+    // Beispiel: Benutze deine Library, falls sie global exportiert wird
+    if (window.BibtexParser) {
+        console.log('BibtexParser ist geladen', window.BibtexParser);
+        // hier kannst du BibtexParser benutzen
+    } else {
+        console.warn('BibtexParser nicht gefunden');
+    }
+</script>
+</body>
+</html>
