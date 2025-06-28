@@ -4,17 +4,11 @@
 import { ATN } from "antlr4ts/atn/ATN";
 import { ATNDeserializer } from "antlr4ts/atn/ATNDeserializer";
 import { FailedPredicateException } from "antlr4ts/FailedPredicateException";
-import { NotNull } from "antlr4ts/Decorators";
 import { NoViableAltException } from "antlr4ts/NoViableAltException";
-import { Override } from "antlr4ts/Decorators";
 import { Parser } from "antlr4ts/Parser";
 import { ParserRuleContext } from "antlr4ts/ParserRuleContext";
 import { ParserATNSimulator } from "antlr4ts/atn/ParserATNSimulator";
-import { ParseTreeListener } from "antlr4ts/tree/ParseTreeListener";
-import { ParseTreeVisitor } from "antlr4ts/tree/ParseTreeVisitor";
 import { RecognitionException } from "antlr4ts/RecognitionException";
-import { RuleContext } from "antlr4ts/RuleContext";
-//import { RuleVersion } from "antlr4ts/RuleVersion";
 import { TerminalNode } from "antlr4ts/tree/TerminalNode";
 import { Token } from "antlr4ts/Token";
 import { TokenStream } from "antlr4ts/TokenStream";
@@ -82,10 +76,10 @@ export class BibTeXParser extends Parser {
 	];
 
 	private static readonly _LITERAL_NAMES: Array<string | undefined> = [
-		undefined, undefined, undefined, undefined, undefined, undefined, undefined, 
-		undefined, undefined, undefined, undefined, undefined, undefined, undefined, 
-		undefined, undefined, "'='", "','", "'\"'", "'('", "')'", "'{'", "'}'", 
-		"'@'",
+		undefined, "'@article'", "'@book'", "'@booklet'", "'@inbook'", "'@incollection'", 
+		"'@inproceedings'", "'@proceedings'", "'@manual'", "'@masterthesis'", 
+		"'@phdthesis'", "'@misc'", "'@techreport'", "'@unpublished'", "'@dataset'", 
+		undefined, "'='", "','", "'\"'", "'('", "')'", "'{'", "'}'", "'@'",
 	];
 	private static readonly _SYMBOLIC_NAMES: Array<string | undefined> = [
 		undefined, "ARTICLE", "BOOK", "BOOKLET", "INBOOK", "INCOLLECTION", "INPROCEEDINGS", 
@@ -380,6 +374,7 @@ export class BibTeXParser extends Parser {
 		this.enterRule(_localctx, 10, BibTeXParser.RULE_article);
 		let _la: number;
 		try {
+			let _alt: number;
 			this.enterOuterAlt(_localctx, 1);
 			{
 			this.state = 70;
@@ -394,21 +389,33 @@ export class BibTeXParser extends Parser {
 			this.field();
 			this.state = 79;
 			this._errHandler.sync(this);
-			_la = this._input.LA(1);
-			while (_la === BibTeXParser.COMMA) {
-				{
-				{
-				this.state = 75;
-				this.match(BibTeXParser.COMMA);
-				this.state = 76;
-				this.field();
-				}
+			_alt = this.interpreter.adaptivePredict(this._input, 2, this._ctx);
+			while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER) {
+				if (_alt === 1) {
+					{
+					{
+					this.state = 75;
+					this.match(BibTeXParser.COMMA);
+					this.state = 76;
+					this.field();
+					}
+					}
 				}
 				this.state = 81;
 				this._errHandler.sync(this);
-				_la = this._input.LA(1);
+				_alt = this.interpreter.adaptivePredict(this._input, 2, this._ctx);
 			}
-			this.state = 82;
+			this.state = 83;
+			this._errHandler.sync(this);
+			_la = this._input.LA(1);
+			if (_la === BibTeXParser.COMMA) {
+				{
+				this.state = 82;
+				this.match(BibTeXParser.COMMA);
+				}
+			}
+
+			this.state = 85;
 			this.match(BibTeXParser.RBRACE);
 			}
 		}
@@ -432,35 +439,48 @@ export class BibTeXParser extends Parser {
 		this.enterRule(_localctx, 12, BibTeXParser.RULE_book);
 		let _la: number;
 		try {
+			let _alt: number;
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 84;
-			this.match(BibTeXParser.BOOK);
-			this.state = 85;
-			this.match(BibTeXParser.LBRACE);
-			this.state = 86;
-			this.match(BibTeXParser.IDENTIFIER);
 			this.state = 87;
-			this.match(BibTeXParser.COMMA);
+			this.match(BibTeXParser.BOOK);
 			this.state = 88;
+			this.match(BibTeXParser.LBRACE);
+			this.state = 89;
+			this.match(BibTeXParser.IDENTIFIER);
+			this.state = 90;
+			this.match(BibTeXParser.COMMA);
+			this.state = 91;
 			this.field();
-			this.state = 93;
+			this.state = 96;
+			this._errHandler.sync(this);
+			_alt = this.interpreter.adaptivePredict(this._input, 4, this._ctx);
+			while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER) {
+				if (_alt === 1) {
+					{
+					{
+					this.state = 92;
+					this.match(BibTeXParser.COMMA);
+					this.state = 93;
+					this.field();
+					}
+					}
+				}
+				this.state = 98;
+				this._errHandler.sync(this);
+				_alt = this.interpreter.adaptivePredict(this._input, 4, this._ctx);
+			}
+			this.state = 100;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			while (_la === BibTeXParser.COMMA) {
+			if (_la === BibTeXParser.COMMA) {
 				{
-				{
-				this.state = 89;
+				this.state = 99;
 				this.match(BibTeXParser.COMMA);
-				this.state = 90;
-				this.field();
 				}
-				}
-				this.state = 95;
-				this._errHandler.sync(this);
-				_la = this._input.LA(1);
 			}
-			this.state = 96;
+
+			this.state = 102;
 			this.match(BibTeXParser.RBRACE);
 			}
 		}
@@ -484,35 +504,48 @@ export class BibTeXParser extends Parser {
 		this.enterRule(_localctx, 14, BibTeXParser.RULE_booklet);
 		let _la: number;
 		try {
+			let _alt: number;
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 98;
+			this.state = 104;
 			this.match(BibTeXParser.BOOKLET);
-			this.state = 99;
+			this.state = 105;
 			this.match(BibTeXParser.LBRACE);
-			this.state = 100;
+			this.state = 106;
 			this.match(BibTeXParser.IDENTIFIER);
-			this.state = 101;
-			this.match(BibTeXParser.COMMA);
-			this.state = 102;
-			this.field();
 			this.state = 107;
+			this.match(BibTeXParser.COMMA);
+			this.state = 108;
+			this.field();
+			this.state = 113;
+			this._errHandler.sync(this);
+			_alt = this.interpreter.adaptivePredict(this._input, 6, this._ctx);
+			while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER) {
+				if (_alt === 1) {
+					{
+					{
+					this.state = 109;
+					this.match(BibTeXParser.COMMA);
+					this.state = 110;
+					this.field();
+					}
+					}
+				}
+				this.state = 115;
+				this._errHandler.sync(this);
+				_alt = this.interpreter.adaptivePredict(this._input, 6, this._ctx);
+			}
+			this.state = 117;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			while (_la === BibTeXParser.COMMA) {
+			if (_la === BibTeXParser.COMMA) {
 				{
-				{
-				this.state = 103;
+				this.state = 116;
 				this.match(BibTeXParser.COMMA);
-				this.state = 104;
-				this.field();
 				}
-				}
-				this.state = 109;
-				this._errHandler.sync(this);
-				_la = this._input.LA(1);
 			}
-			this.state = 110;
+
+			this.state = 119;
 			this.match(BibTeXParser.RBRACE);
 			}
 		}
@@ -536,35 +569,48 @@ export class BibTeXParser extends Parser {
 		this.enterRule(_localctx, 16, BibTeXParser.RULE_inbook);
 		let _la: number;
 		try {
+			let _alt: number;
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 112;
-			this.match(BibTeXParser.INBOOK);
-			this.state = 113;
-			this.match(BibTeXParser.LBRACE);
-			this.state = 114;
-			this.match(BibTeXParser.IDENTIFIER);
-			this.state = 115;
-			this.match(BibTeXParser.COMMA);
-			this.state = 116;
-			this.field();
 			this.state = 121;
+			this.match(BibTeXParser.INBOOK);
+			this.state = 122;
+			this.match(BibTeXParser.LBRACE);
+			this.state = 123;
+			this.match(BibTeXParser.IDENTIFIER);
+			this.state = 124;
+			this.match(BibTeXParser.COMMA);
+			this.state = 125;
+			this.field();
+			this.state = 130;
+			this._errHandler.sync(this);
+			_alt = this.interpreter.adaptivePredict(this._input, 8, this._ctx);
+			while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER) {
+				if (_alt === 1) {
+					{
+					{
+					this.state = 126;
+					this.match(BibTeXParser.COMMA);
+					this.state = 127;
+					this.field();
+					}
+					}
+				}
+				this.state = 132;
+				this._errHandler.sync(this);
+				_alt = this.interpreter.adaptivePredict(this._input, 8, this._ctx);
+			}
+			this.state = 134;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			while (_la === BibTeXParser.COMMA) {
+			if (_la === BibTeXParser.COMMA) {
 				{
-				{
-				this.state = 117;
+				this.state = 133;
 				this.match(BibTeXParser.COMMA);
-				this.state = 118;
-				this.field();
 				}
-				}
-				this.state = 123;
-				this._errHandler.sync(this);
-				_la = this._input.LA(1);
 			}
-			this.state = 124;
+
+			this.state = 136;
 			this.match(BibTeXParser.RBRACE);
 			}
 		}
@@ -588,35 +634,48 @@ export class BibTeXParser extends Parser {
 		this.enterRule(_localctx, 18, BibTeXParser.RULE_incollection);
 		let _la: number;
 		try {
+			let _alt: number;
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 126;
+			this.state = 138;
 			this.match(BibTeXParser.INCOLLECTION);
-			this.state = 127;
+			this.state = 139;
 			this.match(BibTeXParser.LBRACE);
-			this.state = 128;
+			this.state = 140;
 			this.match(BibTeXParser.IDENTIFIER);
-			this.state = 129;
+			this.state = 141;
 			this.match(BibTeXParser.COMMA);
-			this.state = 130;
+			this.state = 142;
 			this.field();
-			this.state = 135;
+			this.state = 147;
+			this._errHandler.sync(this);
+			_alt = this.interpreter.adaptivePredict(this._input, 10, this._ctx);
+			while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER) {
+				if (_alt === 1) {
+					{
+					{
+					this.state = 143;
+					this.match(BibTeXParser.COMMA);
+					this.state = 144;
+					this.field();
+					}
+					}
+				}
+				this.state = 149;
+				this._errHandler.sync(this);
+				_alt = this.interpreter.adaptivePredict(this._input, 10, this._ctx);
+			}
+			this.state = 151;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			while (_la === BibTeXParser.COMMA) {
+			if (_la === BibTeXParser.COMMA) {
 				{
-				{
-				this.state = 131;
+				this.state = 150;
 				this.match(BibTeXParser.COMMA);
-				this.state = 132;
-				this.field();
 				}
-				}
-				this.state = 137;
-				this._errHandler.sync(this);
-				_la = this._input.LA(1);
 			}
-			this.state = 138;
+
+			this.state = 153;
 			this.match(BibTeXParser.RBRACE);
 			}
 		}
@@ -640,35 +699,48 @@ export class BibTeXParser extends Parser {
 		this.enterRule(_localctx, 20, BibTeXParser.RULE_inproceedings);
 		let _la: number;
 		try {
+			let _alt: number;
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 140;
+			this.state = 155;
 			this.match(BibTeXParser.INPROCEEDINGS);
-			this.state = 141;
+			this.state = 156;
 			this.match(BibTeXParser.LBRACE);
-			this.state = 142;
+			this.state = 157;
 			this.match(BibTeXParser.IDENTIFIER);
-			this.state = 143;
+			this.state = 158;
 			this.match(BibTeXParser.COMMA);
-			this.state = 144;
+			this.state = 159;
 			this.field();
-			this.state = 149;
+			this.state = 164;
+			this._errHandler.sync(this);
+			_alt = this.interpreter.adaptivePredict(this._input, 12, this._ctx);
+			while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER) {
+				if (_alt === 1) {
+					{
+					{
+					this.state = 160;
+					this.match(BibTeXParser.COMMA);
+					this.state = 161;
+					this.field();
+					}
+					}
+				}
+				this.state = 166;
+				this._errHandler.sync(this);
+				_alt = this.interpreter.adaptivePredict(this._input, 12, this._ctx);
+			}
+			this.state = 168;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			while (_la === BibTeXParser.COMMA) {
+			if (_la === BibTeXParser.COMMA) {
 				{
-				{
-				this.state = 145;
+				this.state = 167;
 				this.match(BibTeXParser.COMMA);
-				this.state = 146;
-				this.field();
 				}
-				}
-				this.state = 151;
-				this._errHandler.sync(this);
-				_la = this._input.LA(1);
 			}
-			this.state = 152;
+
+			this.state = 170;
 			this.match(BibTeXParser.RBRACE);
 			}
 		}
@@ -692,35 +764,48 @@ export class BibTeXParser extends Parser {
 		this.enterRule(_localctx, 22, BibTeXParser.RULE_proceedings);
 		let _la: number;
 		try {
+			let _alt: number;
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 154;
+			this.state = 172;
 			this.match(BibTeXParser.PROCEEDINGS);
-			this.state = 155;
+			this.state = 173;
 			this.match(BibTeXParser.LBRACE);
-			this.state = 156;
+			this.state = 174;
 			this.match(BibTeXParser.IDENTIFIER);
-			this.state = 157;
+			this.state = 175;
 			this.match(BibTeXParser.COMMA);
-			this.state = 158;
+			this.state = 176;
 			this.field();
-			this.state = 163;
+			this.state = 181;
+			this._errHandler.sync(this);
+			_alt = this.interpreter.adaptivePredict(this._input, 14, this._ctx);
+			while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER) {
+				if (_alt === 1) {
+					{
+					{
+					this.state = 177;
+					this.match(BibTeXParser.COMMA);
+					this.state = 178;
+					this.field();
+					}
+					}
+				}
+				this.state = 183;
+				this._errHandler.sync(this);
+				_alt = this.interpreter.adaptivePredict(this._input, 14, this._ctx);
+			}
+			this.state = 185;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			while (_la === BibTeXParser.COMMA) {
+			if (_la === BibTeXParser.COMMA) {
 				{
-				{
-				this.state = 159;
+				this.state = 184;
 				this.match(BibTeXParser.COMMA);
-				this.state = 160;
-				this.field();
 				}
-				}
-				this.state = 165;
-				this._errHandler.sync(this);
-				_la = this._input.LA(1);
 			}
-			this.state = 166;
+
+			this.state = 187;
 			this.match(BibTeXParser.RBRACE);
 			}
 		}
@@ -744,35 +829,48 @@ export class BibTeXParser extends Parser {
 		this.enterRule(_localctx, 24, BibTeXParser.RULE_manual);
 		let _la: number;
 		try {
+			let _alt: number;
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 168;
+			this.state = 189;
 			this.match(BibTeXParser.MANUAL);
-			this.state = 169;
+			this.state = 190;
 			this.match(BibTeXParser.LBRACE);
-			this.state = 170;
+			this.state = 191;
 			this.match(BibTeXParser.IDENTIFIER);
-			this.state = 171;
+			this.state = 192;
 			this.match(BibTeXParser.COMMA);
-			this.state = 172;
+			this.state = 193;
 			this.field();
-			this.state = 177;
+			this.state = 198;
+			this._errHandler.sync(this);
+			_alt = this.interpreter.adaptivePredict(this._input, 16, this._ctx);
+			while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER) {
+				if (_alt === 1) {
+					{
+					{
+					this.state = 194;
+					this.match(BibTeXParser.COMMA);
+					this.state = 195;
+					this.field();
+					}
+					}
+				}
+				this.state = 200;
+				this._errHandler.sync(this);
+				_alt = this.interpreter.adaptivePredict(this._input, 16, this._ctx);
+			}
+			this.state = 202;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			while (_la === BibTeXParser.COMMA) {
+			if (_la === BibTeXParser.COMMA) {
 				{
-				{
-				this.state = 173;
+				this.state = 201;
 				this.match(BibTeXParser.COMMA);
-				this.state = 174;
-				this.field();
 				}
-				}
-				this.state = 179;
-				this._errHandler.sync(this);
-				_la = this._input.LA(1);
 			}
-			this.state = 180;
+
+			this.state = 204;
 			this.match(BibTeXParser.RBRACE);
 			}
 		}
@@ -796,35 +894,48 @@ export class BibTeXParser extends Parser {
 		this.enterRule(_localctx, 26, BibTeXParser.RULE_mastersthesis);
 		let _la: number;
 		try {
+			let _alt: number;
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 182;
+			this.state = 206;
 			this.match(BibTeXParser.MASTERTHESIS);
-			this.state = 183;
+			this.state = 207;
 			this.match(BibTeXParser.LBRACE);
-			this.state = 184;
+			this.state = 208;
 			this.match(BibTeXParser.IDENTIFIER);
-			this.state = 185;
+			this.state = 209;
 			this.match(BibTeXParser.COMMA);
-			this.state = 186;
+			this.state = 210;
 			this.field();
-			this.state = 191;
+			this.state = 215;
+			this._errHandler.sync(this);
+			_alt = this.interpreter.adaptivePredict(this._input, 18, this._ctx);
+			while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER) {
+				if (_alt === 1) {
+					{
+					{
+					this.state = 211;
+					this.match(BibTeXParser.COMMA);
+					this.state = 212;
+					this.field();
+					}
+					}
+				}
+				this.state = 217;
+				this._errHandler.sync(this);
+				_alt = this.interpreter.adaptivePredict(this._input, 18, this._ctx);
+			}
+			this.state = 219;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			while (_la === BibTeXParser.COMMA) {
+			if (_la === BibTeXParser.COMMA) {
 				{
-				{
-				this.state = 187;
+				this.state = 218;
 				this.match(BibTeXParser.COMMA);
-				this.state = 188;
-				this.field();
 				}
-				}
-				this.state = 193;
-				this._errHandler.sync(this);
-				_la = this._input.LA(1);
 			}
-			this.state = 194;
+
+			this.state = 221;
 			this.match(BibTeXParser.RBRACE);
 			}
 		}
@@ -848,35 +959,48 @@ export class BibTeXParser extends Parser {
 		this.enterRule(_localctx, 28, BibTeXParser.RULE_phdthesis);
 		let _la: number;
 		try {
+			let _alt: number;
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 196;
+			this.state = 223;
 			this.match(BibTeXParser.PHDTHESIS);
-			this.state = 197;
+			this.state = 224;
 			this.match(BibTeXParser.LBRACE);
-			this.state = 198;
+			this.state = 225;
 			this.match(BibTeXParser.IDENTIFIER);
-			this.state = 199;
+			this.state = 226;
 			this.match(BibTeXParser.COMMA);
-			this.state = 200;
+			this.state = 227;
 			this.field();
-			this.state = 205;
+			this.state = 232;
+			this._errHandler.sync(this);
+			_alt = this.interpreter.adaptivePredict(this._input, 20, this._ctx);
+			while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER) {
+				if (_alt === 1) {
+					{
+					{
+					this.state = 228;
+					this.match(BibTeXParser.COMMA);
+					this.state = 229;
+					this.field();
+					}
+					}
+				}
+				this.state = 234;
+				this._errHandler.sync(this);
+				_alt = this.interpreter.adaptivePredict(this._input, 20, this._ctx);
+			}
+			this.state = 236;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			while (_la === BibTeXParser.COMMA) {
+			if (_la === BibTeXParser.COMMA) {
 				{
-				{
-				this.state = 201;
+				this.state = 235;
 				this.match(BibTeXParser.COMMA);
-				this.state = 202;
-				this.field();
 				}
-				}
-				this.state = 207;
-				this._errHandler.sync(this);
-				_la = this._input.LA(1);
 			}
-			this.state = 208;
+
+			this.state = 238;
 			this.match(BibTeXParser.RBRACE);
 			}
 		}
@@ -900,35 +1024,48 @@ export class BibTeXParser extends Parser {
 		this.enterRule(_localctx, 30, BibTeXParser.RULE_misc);
 		let _la: number;
 		try {
+			let _alt: number;
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 210;
+			this.state = 240;
 			this.match(BibTeXParser.MISC);
-			this.state = 211;
+			this.state = 241;
 			this.match(BibTeXParser.LBRACE);
-			this.state = 212;
+			this.state = 242;
 			this.match(BibTeXParser.IDENTIFIER);
-			this.state = 213;
+			this.state = 243;
 			this.match(BibTeXParser.COMMA);
-			this.state = 214;
+			this.state = 244;
 			this.field();
-			this.state = 219;
+			this.state = 249;
+			this._errHandler.sync(this);
+			_alt = this.interpreter.adaptivePredict(this._input, 22, this._ctx);
+			while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER) {
+				if (_alt === 1) {
+					{
+					{
+					this.state = 245;
+					this.match(BibTeXParser.COMMA);
+					this.state = 246;
+					this.field();
+					}
+					}
+				}
+				this.state = 251;
+				this._errHandler.sync(this);
+				_alt = this.interpreter.adaptivePredict(this._input, 22, this._ctx);
+			}
+			this.state = 253;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			while (_la === BibTeXParser.COMMA) {
+			if (_la === BibTeXParser.COMMA) {
 				{
-				{
-				this.state = 215;
+				this.state = 252;
 				this.match(BibTeXParser.COMMA);
-				this.state = 216;
-				this.field();
 				}
-				}
-				this.state = 221;
-				this._errHandler.sync(this);
-				_la = this._input.LA(1);
 			}
-			this.state = 222;
+
+			this.state = 255;
 			this.match(BibTeXParser.RBRACE);
 			}
 		}
@@ -952,35 +1089,48 @@ export class BibTeXParser extends Parser {
 		this.enterRule(_localctx, 32, BibTeXParser.RULE_techreport);
 		let _la: number;
 		try {
+			let _alt: number;
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 224;
+			this.state = 257;
 			this.match(BibTeXParser.TECHREPORT);
-			this.state = 225;
+			this.state = 258;
 			this.match(BibTeXParser.LBRACE);
-			this.state = 226;
+			this.state = 259;
 			this.match(BibTeXParser.IDENTIFIER);
-			this.state = 227;
+			this.state = 260;
 			this.match(BibTeXParser.COMMA);
-			this.state = 228;
+			this.state = 261;
 			this.field();
-			this.state = 233;
+			this.state = 266;
+			this._errHandler.sync(this);
+			_alt = this.interpreter.adaptivePredict(this._input, 24, this._ctx);
+			while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER) {
+				if (_alt === 1) {
+					{
+					{
+					this.state = 262;
+					this.match(BibTeXParser.COMMA);
+					this.state = 263;
+					this.field();
+					}
+					}
+				}
+				this.state = 268;
+				this._errHandler.sync(this);
+				_alt = this.interpreter.adaptivePredict(this._input, 24, this._ctx);
+			}
+			this.state = 270;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			while (_la === BibTeXParser.COMMA) {
+			if (_la === BibTeXParser.COMMA) {
 				{
-				{
-				this.state = 229;
+				this.state = 269;
 				this.match(BibTeXParser.COMMA);
-				this.state = 230;
-				this.field();
 				}
-				}
-				this.state = 235;
-				this._errHandler.sync(this);
-				_la = this._input.LA(1);
 			}
-			this.state = 236;
+
+			this.state = 272;
 			this.match(BibTeXParser.RBRACE);
 			}
 		}
@@ -1004,35 +1154,48 @@ export class BibTeXParser extends Parser {
 		this.enterRule(_localctx, 34, BibTeXParser.RULE_unpublished);
 		let _la: number;
 		try {
+			let _alt: number;
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 238;
+			this.state = 274;
 			this.match(BibTeXParser.UNPUBLISHED);
-			this.state = 239;
+			this.state = 275;
 			this.match(BibTeXParser.LBRACE);
-			this.state = 240;
+			this.state = 276;
 			this.match(BibTeXParser.IDENTIFIER);
-			this.state = 241;
+			this.state = 277;
 			this.match(BibTeXParser.COMMA);
-			this.state = 242;
+			this.state = 278;
 			this.field();
-			this.state = 247;
+			this.state = 283;
+			this._errHandler.sync(this);
+			_alt = this.interpreter.adaptivePredict(this._input, 26, this._ctx);
+			while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER) {
+				if (_alt === 1) {
+					{
+					{
+					this.state = 279;
+					this.match(BibTeXParser.COMMA);
+					this.state = 280;
+					this.field();
+					}
+					}
+				}
+				this.state = 285;
+				this._errHandler.sync(this);
+				_alt = this.interpreter.adaptivePredict(this._input, 26, this._ctx);
+			}
+			this.state = 287;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			while (_la === BibTeXParser.COMMA) {
+			if (_la === BibTeXParser.COMMA) {
 				{
-				{
-				this.state = 243;
+				this.state = 286;
 				this.match(BibTeXParser.COMMA);
-				this.state = 244;
-				this.field();
 				}
-				}
-				this.state = 249;
-				this._errHandler.sync(this);
-				_la = this._input.LA(1);
 			}
-			this.state = 250;
+
+			this.state = 289;
 			this.match(BibTeXParser.RBRACE);
 			}
 		}
@@ -1056,35 +1219,48 @@ export class BibTeXParser extends Parser {
 		this.enterRule(_localctx, 36, BibTeXParser.RULE_dataset);
 		let _la: number;
 		try {
+			let _alt: number;
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 252;
+			this.state = 291;
 			this.match(BibTeXParser.DATASET);
-			this.state = 253;
+			this.state = 292;
 			this.match(BibTeXParser.LBRACE);
-			this.state = 254;
+			this.state = 293;
 			this.match(BibTeXParser.IDENTIFIER);
-			this.state = 255;
+			this.state = 294;
 			this.match(BibTeXParser.COMMA);
-			this.state = 256;
+			this.state = 295;
 			this.field();
-			this.state = 261;
+			this.state = 300;
+			this._errHandler.sync(this);
+			_alt = this.interpreter.adaptivePredict(this._input, 28, this._ctx);
+			while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER) {
+				if (_alt === 1) {
+					{
+					{
+					this.state = 296;
+					this.match(BibTeXParser.COMMA);
+					this.state = 297;
+					this.field();
+					}
+					}
+				}
+				this.state = 302;
+				this._errHandler.sync(this);
+				_alt = this.interpreter.adaptivePredict(this._input, 28, this._ctx);
+			}
+			this.state = 304;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			while (_la === BibTeXParser.COMMA) {
+			if (_la === BibTeXParser.COMMA) {
 				{
-				{
-				this.state = 257;
+				this.state = 303;
 				this.match(BibTeXParser.COMMA);
-				this.state = 258;
-				this.field();
 				}
-				}
-				this.state = 263;
-				this._errHandler.sync(this);
-				_la = this._input.LA(1);
 			}
-			this.state = 264;
+
+			this.state = 306;
 			this.match(BibTeXParser.RBRACE);
 			}
 		}
@@ -1104,7 +1280,7 @@ export class BibTeXParser extends Parser {
 	}
 
 	public static readonly _serializedATN: string =
-		"\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x03\x1D\u010D\x04" +
+		"\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x03\x1D\u0137\x04" +
 		"\x02\t\x02\x04\x03\t\x03\x04\x04\t\x04\x04\x05\t\x05\x04\x06\t\x06\x04" +
 		"\x07\t\x07\x04\b\t\b\x04\t\t\t\x04\n\t\n\x04\v\t\v\x04\f\t\f\x04\r\t\r" +
 		"\x04\x0E\t\x0E\x04\x0F\t\x0F\x04\x10\t\x10\x04\x11\t\x11\x04\x12\t\x12" +
@@ -1113,112 +1289,139 @@ export class BibTeXParser extends Parser {
 		"\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x05\x03?\n\x03" +
 		"\x03\x04\x03\x04\x03\x04\x03\x04\x03\x05\x03\x05\x03\x06\x03\x06\x03\x07" +
 		"\x03\x07\x03\x07\x03\x07\x03\x07\x03\x07\x03\x07\x07\x07P\n\x07\f\x07" +
-		"\x0E\x07S\v\x07\x03\x07\x03\x07\x03\b\x03\b\x03\b\x03\b\x03\b\x03\b\x03" +
-		"\b\x07\b^\n\b\f\b\x0E\ba\v\b\x03\b\x03\b\x03\t\x03\t\x03\t\x03\t\x03\t" +
-		"\x03\t\x03\t\x07\tl\n\t\f\t\x0E\to\v\t\x03\t\x03\t\x03\n\x03\n\x03\n\x03" +
-		"\n\x03\n\x03\n\x03\n\x07\nz\n\n\f\n\x0E\n}\v\n\x03\n\x03\n\x03\v\x03\v" +
-		"\x03\v\x03\v\x03\v\x03\v\x03\v\x07\v\x88\n\v\f\v\x0E\v\x8B\v\v\x03\v\x03" +
-		"\v\x03\f\x03\f\x03\f\x03\f\x03\f\x03\f\x03\f\x07\f\x96\n\f\f\f\x0E\f\x99" +
-		"\v\f\x03\f\x03\f\x03\r\x03\r\x03\r\x03\r\x03\r\x03\r\x03\r\x07\r\xA4\n" +
-		"\r\f\r\x0E\r\xA7\v\r\x03\r\x03\r\x03\x0E\x03\x0E\x03\x0E\x03\x0E\x03\x0E" +
-		"\x03\x0E\x03\x0E\x07\x0E\xB2\n\x0E\f\x0E\x0E\x0E\xB5\v\x0E\x03\x0E\x03" +
-		"\x0E\x03\x0F\x03\x0F\x03\x0F\x03\x0F\x03\x0F\x03\x0F\x03\x0F\x07\x0F\xC0" +
-		"\n\x0F\f\x0F\x0E\x0F\xC3\v\x0F\x03\x0F\x03\x0F\x03\x10\x03\x10\x03\x10" +
-		"\x03\x10\x03\x10\x03\x10\x03\x10\x07\x10\xCE\n\x10\f\x10\x0E\x10\xD1\v" +
-		"\x10\x03\x10\x03\x10\x03\x11\x03\x11\x03\x11\x03\x11\x03\x11\x03\x11\x03" +
-		"\x11\x07\x11\xDC\n\x11\f\x11\x0E\x11\xDF\v\x11\x03\x11\x03\x11\x03\x12" +
-		"\x03\x12\x03\x12\x03\x12\x03\x12\x03\x12\x03\x12\x07\x12\xEA\n\x12\f\x12" +
-		"\x0E\x12\xED\v\x12\x03\x12\x03\x12\x03\x13\x03\x13\x03\x13\x03\x13\x03" +
-		"\x13\x03\x13\x03\x13\x07\x13\xF8\n\x13\f\x13\x0E\x13\xFB\v\x13\x03\x13" +
-		"\x03\x13\x03\x14\x03\x14\x03\x14\x03\x14\x03\x14\x03\x14\x03\x14\x07\x14" +
-		"\u0106\n\x14\f\x14\x0E\x14\u0109\v\x14\x03\x14\x03\x14\x03\x14\x02\x02" +
+		"\x0E\x07S\v\x07\x03\x07\x05\x07V\n\x07\x03\x07\x03\x07\x03\b\x03\b\x03" +
+		"\b\x03\b\x03\b\x03\b\x03\b\x07\ba\n\b\f\b\x0E\bd\v\b\x03\b\x05\bg\n\b" +
+		"\x03\b\x03\b\x03\t\x03\t\x03\t\x03\t\x03\t\x03\t\x03\t\x07\tr\n\t\f\t" +
+		"\x0E\tu\v\t\x03\t\x05\tx\n\t\x03\t\x03\t\x03\n\x03\n\x03\n\x03\n\x03\n" +
+		"\x03\n\x03\n\x07\n\x83\n\n\f\n\x0E\n\x86\v\n\x03\n\x05\n\x89\n\n\x03\n" +
+		"\x03\n\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x07\v\x94\n\v\f\v\x0E" +
+		"\v\x97\v\v\x03\v\x05\v\x9A\n\v\x03\v\x03\v\x03\f\x03\f\x03\f\x03\f\x03" +
+		"\f\x03\f\x03\f\x07\f\xA5\n\f\f\f\x0E\f\xA8\v\f\x03\f\x05\f\xAB\n\f\x03" +
+		"\f\x03\f\x03\r\x03\r\x03\r\x03\r\x03\r\x03\r\x03\r\x07\r\xB6\n\r\f\r\x0E" +
+		"\r\xB9\v\r\x03\r\x05\r\xBC\n\r\x03\r\x03\r\x03\x0E\x03\x0E\x03\x0E\x03" +
+		"\x0E\x03\x0E\x03\x0E\x03\x0E\x07\x0E\xC7\n\x0E\f\x0E\x0E\x0E\xCA\v\x0E" +
+		"\x03\x0E\x05\x0E\xCD\n\x0E\x03\x0E\x03\x0E\x03\x0F\x03\x0F\x03\x0F\x03" +
+		"\x0F\x03\x0F\x03\x0F\x03\x0F\x07\x0F\xD8\n\x0F\f\x0F\x0E\x0F\xDB\v\x0F" +
+		"\x03\x0F\x05\x0F\xDE\n\x0F\x03\x0F\x03\x0F\x03\x10\x03\x10\x03\x10\x03" +
+		"\x10\x03\x10\x03\x10\x03\x10\x07\x10\xE9\n\x10\f\x10\x0E\x10\xEC\v\x10" +
+		"\x03\x10\x05\x10\xEF\n\x10\x03\x10\x03\x10\x03\x11\x03\x11\x03\x11\x03" +
+		"\x11\x03\x11\x03\x11\x03\x11\x07\x11\xFA\n\x11\f\x11\x0E\x11\xFD\v\x11" +
+		"\x03\x11\x05\x11\u0100\n\x11\x03\x11\x03\x11\x03\x12\x03\x12\x03\x12\x03" +
+		"\x12\x03\x12\x03\x12\x03\x12\x07\x12\u010B\n\x12\f\x12\x0E\x12\u010E\v" +
+		"\x12\x03\x12\x05\x12\u0111\n\x12\x03\x12\x03\x12\x03\x13\x03\x13\x03\x13" +
+		"\x03\x13\x03\x13\x03\x13\x03\x13\x07\x13\u011C\n\x13\f\x13\x0E\x13\u011F" +
+		"\v\x13\x03\x13\x05\x13\u0122\n\x13\x03\x13\x03\x13\x03\x14\x03\x14\x03" +
+		"\x14\x03\x14\x03\x14\x03\x14\x03\x14\x07\x14\u012D\n\x14\f\x14\x0E\x14" +
+		"\u0130\v\x14\x03\x14\x05\x14\u0133\n\x14\x03\x14\x03\x14\x03\x14\x02\x02" +
 		"\x02\x15\x02\x02\x04\x02\x06\x02\b\x02\n\x02\f\x02\x0E\x02\x10\x02\x12" +
 		"\x02\x14\x02\x16\x02\x18\x02\x1A\x02\x1C\x02\x1E\x02 \x02\"\x02$\x02&" +
-		"\x02\x02\x03\x03\x02\x1A\x1B\x02\u0115\x02+\x03\x02\x02\x02\x04>\x03\x02" +
+		"\x02\x02\x03\x03\x02\x1A\x1B\x02\u014D\x02+\x03\x02\x02\x02\x04>\x03\x02" +
 		"\x02\x02\x06@\x03\x02\x02\x02\bD\x03\x02\x02\x02\nF\x03\x02\x02\x02\f" +
-		"H\x03\x02\x02\x02\x0EV\x03\x02\x02\x02\x10d\x03\x02\x02\x02\x12r\x03\x02" +
-		"\x02\x02\x14\x80\x03\x02\x02\x02\x16\x8E\x03\x02\x02\x02\x18\x9C\x03\x02" +
-		"\x02\x02\x1A\xAA\x03\x02\x02\x02\x1C\xB8\x03\x02\x02\x02\x1E\xC6\x03\x02" +
-		"\x02\x02 \xD4\x03\x02\x02\x02\"\xE2\x03\x02\x02\x02$\xF0\x03\x02\x02\x02" +
-		"&\xFE\x03\x02\x02\x02(*\x05\x04\x03\x02)(\x03\x02\x02\x02*-\x03\x02\x02" +
-		"\x02+)\x03\x02\x02\x02+,\x03\x02\x02\x02,.\x03\x02\x02\x02-+\x03\x02\x02" +
-		"\x02./\x07\x02\x02\x03/\x03\x03\x02\x02\x020?\x05\f\x07\x021?\x05\x0E" +
-		"\b\x022?\x05\x10\t\x023?\x05\x12\n\x024?\x05\x14\v\x025?\x05\x16\f\x02" +
-		"6?\x05\x18\r\x027?\x05\x1A\x0E\x028?\x05\x1C\x0F\x029?\x05\x1E\x10\x02" +
-		":?\x05 \x11\x02;?\x05\"\x12\x02<?\x05$\x13\x02=?\x05&\x14\x02>0\x03\x02" +
-		"\x02\x02>1\x03\x02\x02\x02>2\x03\x02\x02\x02>3\x03\x02\x02\x02>4\x03\x02" +
-		"\x02\x02>5\x03\x02\x02\x02>6\x03\x02\x02\x02>7\x03\x02\x02\x02>8\x03\x02" +
-		"\x02\x02>9\x03\x02\x02\x02>:\x03\x02\x02\x02>;\x03\x02\x02\x02><\x03\x02" +
-		"\x02\x02>=\x03\x02\x02\x02?\x05\x03\x02\x02\x02@A\x05\b\x05\x02AB\x07" +
-		"\x12\x02\x02BC\x05\n\x06\x02C\x07\x03\x02\x02\x02DE\x07\x11\x02\x02E\t" +
-		"\x03\x02\x02\x02FG\t\x02\x02\x02G\v\x03\x02\x02\x02HI\x07\x03\x02\x02" +
+		"H\x03\x02\x02\x02\x0EY\x03\x02\x02\x02\x10j\x03\x02\x02\x02\x12{\x03\x02" +
+		"\x02\x02\x14\x8C\x03\x02\x02\x02\x16\x9D\x03\x02\x02\x02\x18\xAE\x03\x02" +
+		"\x02\x02\x1A\xBF\x03\x02\x02\x02\x1C\xD0\x03\x02\x02\x02\x1E\xE1\x03\x02" +
+		"\x02\x02 \xF2\x03\x02\x02\x02\"\u0103\x03\x02\x02\x02$\u0114\x03\x02\x02" +
+		"\x02&\u0125\x03\x02\x02\x02(*\x05\x04\x03\x02)(\x03\x02\x02\x02*-\x03" +
+		"\x02\x02\x02+)\x03\x02\x02\x02+,\x03\x02\x02\x02,.\x03\x02\x02\x02-+\x03" +
+		"\x02\x02\x02./\x07\x02\x02\x03/\x03\x03\x02\x02\x020?\x05\f\x07\x021?" +
+		"\x05\x0E\b\x022?\x05\x10\t\x023?\x05\x12\n\x024?\x05\x14\v\x025?\x05\x16" +
+		"\f\x026?\x05\x18\r\x027?\x05\x1A\x0E\x028?\x05\x1C\x0F\x029?\x05\x1E\x10" +
+		"\x02:?\x05 \x11\x02;?\x05\"\x12\x02<?\x05$\x13\x02=?\x05&\x14\x02>0\x03" +
+		"\x02\x02\x02>1\x03\x02\x02\x02>2\x03\x02\x02\x02>3\x03\x02\x02\x02>4\x03" +
+		"\x02\x02\x02>5\x03\x02\x02\x02>6\x03\x02\x02\x02>7\x03\x02\x02\x02>8\x03" +
+		"\x02\x02\x02>9\x03\x02\x02\x02>:\x03\x02\x02\x02>;\x03\x02\x02\x02><\x03" +
+		"\x02\x02\x02>=\x03\x02\x02\x02?\x05\x03\x02\x02\x02@A\x05\b\x05\x02AB" +
+		"\x07\x12\x02\x02BC\x05\n\x06\x02C\x07\x03\x02\x02\x02DE\x07\x11\x02\x02" +
+		"E\t\x03\x02\x02\x02FG\t\x02\x02\x02G\v\x03\x02\x02\x02HI\x07\x03\x02\x02" +
 		"IJ\x07\x17\x02\x02JK\x07\x11\x02\x02KL\x07\x13\x02\x02LQ\x05\x06\x04\x02" +
 		"MN\x07\x13\x02\x02NP\x05\x06\x04\x02OM\x03\x02\x02\x02PS\x03\x02\x02\x02" +
-		"QO\x03\x02\x02\x02QR\x03\x02\x02\x02RT\x03\x02\x02\x02SQ\x03\x02\x02\x02" +
-		"TU\x07\x18\x02\x02U\r\x03\x02\x02\x02VW\x07\x04\x02\x02WX\x07\x17\x02" +
-		"\x02XY\x07\x11\x02\x02YZ\x07\x13\x02\x02Z_\x05\x06\x04\x02[\\\x07\x13" +
-		"\x02\x02\\^\x05\x06\x04\x02][\x03\x02\x02\x02^a\x03\x02\x02\x02_]\x03" +
-		"\x02\x02\x02_`\x03\x02\x02\x02`b\x03\x02\x02\x02a_\x03\x02\x02\x02bc\x07" +
-		"\x18\x02\x02c\x0F\x03\x02\x02\x02de\x07\x05\x02\x02ef\x07\x17\x02\x02" +
-		"fg\x07\x11\x02\x02gh\x07\x13\x02\x02hm\x05\x06\x04\x02ij\x07\x13\x02\x02" +
-		"jl\x05\x06\x04\x02ki\x03\x02\x02\x02lo\x03\x02\x02\x02mk\x03\x02\x02\x02" +
-		"mn\x03\x02\x02\x02np\x03\x02\x02\x02om\x03\x02\x02\x02pq\x07\x18\x02\x02" +
-		"q\x11\x03\x02\x02\x02rs\x07\x06\x02\x02st\x07\x17\x02\x02tu\x07\x11\x02" +
-		"\x02uv\x07\x13\x02\x02v{\x05\x06\x04\x02wx\x07\x13\x02\x02xz\x05\x06\x04" +
-		"\x02yw\x03\x02\x02\x02z}\x03\x02\x02\x02{y\x03\x02\x02\x02{|\x03\x02\x02" +
-		"\x02|~\x03\x02\x02\x02}{\x03\x02\x02\x02~\x7F\x07\x18\x02\x02\x7F\x13" +
-		"\x03\x02\x02\x02\x80\x81\x07\x07\x02\x02\x81\x82\x07\x17\x02\x02\x82\x83" +
-		"\x07\x11\x02\x02\x83\x84\x07\x13\x02\x02\x84\x89\x05\x06\x04\x02\x85\x86" +
-		"\x07\x13\x02\x02\x86\x88\x05\x06\x04\x02\x87\x85\x03\x02\x02\x02\x88\x8B" +
-		"\x03\x02\x02\x02\x89\x87\x03\x02\x02\x02\x89\x8A\x03\x02\x02\x02\x8A\x8C" +
-		"\x03\x02\x02\x02\x8B\x89\x03\x02\x02\x02\x8C\x8D\x07\x18\x02\x02\x8D\x15" +
-		"\x03\x02\x02\x02\x8E\x8F\x07\b\x02\x02\x8F\x90\x07\x17\x02\x02\x90\x91" +
-		"\x07\x11\x02\x02\x91\x92\x07\x13\x02\x02\x92\x97\x05\x06\x04\x02\x93\x94" +
-		"\x07\x13\x02\x02\x94\x96\x05\x06\x04\x02\x95\x93\x03\x02\x02\x02\x96\x99" +
-		"\x03\x02\x02\x02\x97\x95\x03\x02\x02\x02\x97\x98\x03\x02\x02\x02\x98\x9A" +
-		"\x03\x02\x02\x02\x99\x97\x03\x02\x02\x02\x9A\x9B\x07\x18\x02\x02\x9B\x17" +
-		"\x03\x02\x02\x02\x9C\x9D\x07\t\x02\x02\x9D\x9E\x07\x17\x02\x02\x9E\x9F" +
-		"\x07\x11\x02\x02\x9F\xA0\x07\x13\x02\x02\xA0\xA5\x05\x06\x04\x02\xA1\xA2" +
-		"\x07\x13\x02\x02\xA2\xA4\x05\x06\x04\x02\xA3\xA1\x03\x02\x02\x02\xA4\xA7" +
-		"\x03\x02\x02\x02\xA5\xA3\x03\x02\x02\x02\xA5\xA6\x03\x02\x02\x02\xA6\xA8" +
-		"\x03\x02\x02\x02\xA7\xA5\x03\x02\x02\x02\xA8\xA9\x07\x18\x02\x02\xA9\x19" +
-		"\x03\x02\x02\x02\xAA\xAB\x07\n\x02\x02\xAB\xAC\x07\x17\x02\x02\xAC\xAD" +
-		"\x07\x11\x02\x02\xAD\xAE\x07\x13\x02\x02\xAE\xB3\x05\x06\x04\x02\xAF\xB0" +
-		"\x07\x13\x02\x02\xB0\xB2\x05\x06\x04\x02\xB1\xAF\x03\x02\x02\x02\xB2\xB5" +
-		"\x03\x02\x02\x02\xB3\xB1\x03\x02\x02\x02\xB3\xB4\x03\x02\x02\x02\xB4\xB6" +
-		"\x03\x02\x02\x02\xB5\xB3\x03\x02\x02\x02\xB6\xB7\x07\x18\x02\x02\xB7\x1B" +
-		"\x03\x02\x02\x02\xB8\xB9\x07\v\x02\x02\xB9\xBA\x07\x17\x02\x02\xBA\xBB" +
-		"\x07\x11\x02\x02\xBB\xBC\x07\x13\x02\x02\xBC\xC1\x05\x06\x04\x02\xBD\xBE" +
-		"\x07\x13\x02\x02\xBE\xC0\x05\x06\x04\x02\xBF\xBD\x03\x02\x02\x02\xC0\xC3" +
-		"\x03\x02\x02\x02\xC1\xBF\x03\x02\x02\x02\xC1\xC2\x03\x02\x02\x02\xC2\xC4" +
-		"\x03\x02\x02\x02\xC3\xC1\x03\x02\x02\x02\xC4\xC5\x07\x18\x02\x02\xC5\x1D" +
-		"\x03\x02\x02\x02\xC6\xC7\x07\f\x02\x02\xC7\xC8\x07\x17\x02\x02\xC8\xC9" +
-		"\x07\x11\x02\x02\xC9\xCA\x07\x13\x02\x02\xCA\xCF\x05\x06\x04\x02\xCB\xCC" +
-		"\x07\x13\x02\x02\xCC\xCE\x05\x06\x04\x02\xCD\xCB\x03\x02\x02\x02\xCE\xD1" +
-		"\x03\x02\x02\x02\xCF\xCD\x03\x02\x02\x02\xCF\xD0\x03\x02\x02\x02\xD0\xD2" +
-		"\x03\x02\x02\x02\xD1\xCF\x03\x02\x02\x02\xD2\xD3\x07\x18\x02\x02\xD3\x1F" +
-		"\x03\x02\x02\x02\xD4\xD5\x07\r\x02\x02\xD5\xD6\x07\x17\x02\x02\xD6\xD7" +
-		"\x07\x11\x02\x02\xD7\xD8\x07\x13\x02\x02\xD8\xDD\x05\x06\x04\x02\xD9\xDA" +
-		"\x07\x13\x02\x02\xDA\xDC\x05\x06\x04\x02\xDB\xD9\x03\x02\x02\x02\xDC\xDF" +
-		"\x03\x02\x02\x02\xDD\xDB\x03\x02\x02\x02\xDD\xDE\x03\x02\x02\x02\xDE\xE0" +
-		"\x03\x02\x02\x02\xDF\xDD\x03\x02\x02\x02\xE0\xE1\x07\x18\x02\x02\xE1!" +
-		"\x03\x02\x02\x02\xE2\xE3\x07\x0E\x02\x02\xE3\xE4\x07\x17\x02\x02\xE4\xE5" +
-		"\x07\x11\x02\x02\xE5\xE6\x07\x13\x02\x02\xE6\xEB\x05\x06\x04\x02\xE7\xE8" +
-		"\x07\x13\x02\x02\xE8\xEA\x05\x06\x04\x02\xE9\xE7\x03\x02\x02\x02\xEA\xED" +
-		"\x03\x02\x02\x02\xEB\xE9\x03\x02\x02\x02\xEB\xEC\x03\x02\x02\x02\xEC\xEE" +
-		"\x03\x02\x02\x02\xED\xEB\x03\x02\x02\x02\xEE\xEF\x07\x18\x02\x02\xEF#" +
-		"\x03\x02\x02\x02\xF0\xF1\x07\x0F\x02\x02\xF1\xF2\x07\x17\x02\x02\xF2\xF3" +
-		"\x07\x11\x02\x02\xF3\xF4\x07\x13\x02\x02\xF4\xF9\x05\x06\x04\x02\xF5\xF6" +
-		"\x07\x13\x02\x02\xF6\xF8\x05\x06\x04\x02\xF7\xF5\x03\x02\x02\x02\xF8\xFB" +
-		"\x03\x02\x02\x02\xF9\xF7\x03\x02\x02\x02\xF9\xFA\x03\x02\x02\x02\xFA\xFC" +
-		"\x03\x02\x02\x02\xFB\xF9\x03\x02\x02\x02\xFC\xFD\x07\x18\x02\x02\xFD%" +
-		"\x03\x02\x02\x02\xFE\xFF\x07\x10\x02\x02\xFF\u0100\x07\x17\x02\x02\u0100" +
-		"\u0101\x07\x11\x02\x02\u0101\u0102\x07\x13\x02\x02\u0102\u0107\x05\x06" +
-		"\x04\x02\u0103\u0104\x07\x13\x02\x02\u0104\u0106\x05\x06\x04\x02\u0105" +
-		"\u0103\x03\x02\x02\x02\u0106\u0109\x03\x02\x02\x02\u0107\u0105\x03\x02" +
-		"\x02\x02\u0107\u0108\x03\x02\x02\x02\u0108\u010A\x03\x02\x02\x02\u0109" +
-		"\u0107\x03\x02\x02\x02\u010A\u010B\x07\x18\x02\x02\u010B\'\x03\x02\x02" +
-		"\x02\x12+>Q_m{\x89\x97\xA5\xB3\xC1\xCF\xDD\xEB\xF9\u0107";
+		"QO\x03\x02\x02\x02QR\x03\x02\x02\x02RU\x03\x02\x02\x02SQ\x03\x02\x02\x02" +
+		"TV\x07\x13\x02\x02UT\x03\x02\x02\x02UV\x03\x02\x02\x02VW\x03\x02\x02\x02" +
+		"WX\x07\x18\x02\x02X\r\x03\x02\x02\x02YZ\x07\x04\x02\x02Z[\x07\x17\x02" +
+		"\x02[\\\x07\x11\x02\x02\\]\x07\x13\x02\x02]b\x05\x06\x04\x02^_\x07\x13" +
+		"\x02\x02_a\x05\x06\x04\x02`^\x03\x02\x02\x02ad\x03\x02\x02\x02b`\x03\x02" +
+		"\x02\x02bc\x03\x02\x02\x02cf\x03\x02\x02\x02db\x03\x02\x02\x02eg\x07\x13" +
+		"\x02\x02fe\x03\x02\x02\x02fg\x03\x02\x02\x02gh\x03\x02\x02\x02hi\x07\x18" +
+		"\x02\x02i\x0F\x03\x02\x02\x02jk\x07\x05\x02\x02kl\x07\x17\x02\x02lm\x07" +
+		"\x11\x02\x02mn\x07\x13\x02\x02ns\x05\x06\x04\x02op\x07\x13\x02\x02pr\x05" +
+		"\x06\x04\x02qo\x03\x02\x02\x02ru\x03\x02\x02\x02sq\x03\x02\x02\x02st\x03" +
+		"\x02\x02\x02tw\x03\x02\x02\x02us\x03\x02\x02\x02vx\x07\x13\x02\x02wv\x03" +
+		"\x02\x02\x02wx\x03\x02\x02\x02xy\x03\x02\x02\x02yz\x07\x18\x02\x02z\x11" +
+		"\x03\x02\x02\x02{|\x07\x06\x02\x02|}\x07\x17\x02\x02}~\x07\x11\x02\x02" +
+		"~\x7F\x07\x13\x02\x02\x7F\x84\x05\x06\x04\x02\x80\x81\x07\x13\x02\x02" +
+		"\x81\x83\x05\x06\x04\x02\x82\x80\x03\x02\x02\x02\x83\x86\x03\x02\x02\x02" +
+		"\x84\x82\x03\x02\x02\x02\x84\x85\x03\x02\x02\x02\x85\x88\x03\x02\x02\x02" +
+		"\x86\x84\x03\x02\x02\x02\x87\x89\x07\x13\x02\x02\x88\x87\x03\x02\x02\x02" +
+		"\x88\x89\x03\x02\x02\x02\x89\x8A\x03\x02\x02\x02\x8A\x8B\x07\x18\x02\x02" +
+		"\x8B\x13\x03\x02\x02\x02\x8C\x8D\x07\x07\x02\x02\x8D\x8E\x07\x17\x02\x02" +
+		"\x8E\x8F\x07\x11\x02\x02\x8F\x90\x07\x13\x02\x02\x90\x95\x05\x06\x04\x02" +
+		"\x91\x92\x07\x13\x02\x02\x92\x94\x05\x06\x04\x02\x93\x91\x03\x02\x02\x02" +
+		"\x94\x97\x03\x02\x02\x02\x95\x93\x03\x02\x02\x02\x95\x96\x03\x02\x02\x02" +
+		"\x96\x99\x03\x02\x02\x02\x97\x95\x03\x02\x02\x02\x98\x9A\x07\x13\x02\x02" +
+		"\x99\x98\x03\x02\x02\x02\x99\x9A\x03\x02\x02\x02\x9A\x9B\x03\x02\x02\x02" +
+		"\x9B\x9C\x07\x18\x02\x02\x9C\x15\x03\x02\x02\x02\x9D\x9E\x07\b\x02\x02" +
+		"\x9E\x9F\x07\x17\x02\x02\x9F\xA0\x07\x11\x02\x02\xA0\xA1\x07\x13\x02\x02" +
+		"\xA1\xA6\x05\x06\x04\x02\xA2\xA3\x07\x13\x02\x02\xA3\xA5\x05\x06\x04\x02" +
+		"\xA4\xA2\x03\x02\x02\x02\xA5\xA8\x03\x02\x02\x02\xA6\xA4\x03\x02\x02\x02" +
+		"\xA6\xA7\x03\x02\x02\x02\xA7\xAA\x03\x02\x02\x02\xA8\xA6\x03\x02\x02\x02" +
+		"\xA9\xAB\x07\x13\x02\x02\xAA\xA9\x03\x02\x02\x02\xAA\xAB\x03\x02\x02\x02" +
+		"\xAB\xAC\x03\x02\x02\x02\xAC\xAD\x07\x18\x02\x02\xAD\x17\x03\x02\x02\x02" +
+		"\xAE\xAF\x07\t\x02\x02\xAF\xB0\x07\x17\x02\x02\xB0\xB1\x07\x11\x02\x02" +
+		"\xB1\xB2\x07\x13\x02\x02\xB2\xB7\x05\x06\x04\x02\xB3\xB4\x07\x13\x02\x02" +
+		"\xB4\xB6\x05\x06\x04\x02\xB5\xB3\x03\x02\x02\x02\xB6\xB9\x03\x02\x02\x02" +
+		"\xB7\xB5\x03\x02\x02\x02\xB7\xB8\x03\x02\x02\x02\xB8\xBB\x03\x02\x02\x02" +
+		"\xB9\xB7\x03\x02\x02\x02\xBA\xBC\x07\x13\x02\x02\xBB\xBA\x03\x02\x02\x02" +
+		"\xBB\xBC\x03\x02\x02\x02\xBC\xBD\x03\x02\x02\x02\xBD\xBE\x07\x18\x02\x02" +
+		"\xBE\x19\x03\x02\x02\x02\xBF\xC0\x07\n\x02\x02\xC0\xC1\x07\x17\x02\x02" +
+		"\xC1\xC2\x07\x11\x02\x02\xC2\xC3\x07\x13\x02\x02\xC3\xC8\x05\x06\x04\x02" +
+		"\xC4\xC5\x07\x13\x02\x02\xC5\xC7\x05\x06\x04\x02\xC6\xC4\x03\x02\x02\x02" +
+		"\xC7\xCA\x03\x02\x02\x02\xC8\xC6\x03\x02\x02\x02\xC8\xC9\x03\x02\x02\x02" +
+		"\xC9\xCC\x03\x02\x02\x02\xCA\xC8\x03\x02\x02\x02\xCB\xCD\x07\x13\x02\x02" +
+		"\xCC\xCB\x03\x02\x02\x02\xCC\xCD\x03\x02\x02\x02\xCD\xCE\x03\x02\x02\x02" +
+		"\xCE\xCF\x07\x18\x02\x02\xCF\x1B\x03\x02\x02\x02\xD0\xD1\x07\v\x02\x02" +
+		"\xD1\xD2\x07\x17\x02\x02\xD2\xD3\x07\x11\x02\x02\xD3\xD4\x07\x13\x02\x02" +
+		"\xD4\xD9\x05\x06\x04\x02\xD5\xD6\x07\x13\x02\x02\xD6\xD8\x05\x06\x04\x02" +
+		"\xD7\xD5\x03\x02\x02\x02\xD8\xDB\x03\x02\x02\x02\xD9\xD7\x03\x02\x02\x02" +
+		"\xD9\xDA\x03\x02\x02\x02\xDA\xDD\x03\x02\x02\x02\xDB\xD9\x03\x02\x02\x02" +
+		"\xDC\xDE\x07\x13\x02\x02\xDD\xDC\x03\x02\x02\x02\xDD\xDE\x03\x02\x02\x02" +
+		"\xDE\xDF\x03\x02\x02\x02\xDF\xE0\x07\x18\x02\x02\xE0\x1D\x03\x02\x02\x02" +
+		"\xE1\xE2\x07\f\x02\x02\xE2\xE3\x07\x17\x02\x02\xE3\xE4\x07\x11\x02\x02" +
+		"\xE4\xE5\x07\x13\x02\x02\xE5\xEA\x05\x06\x04\x02\xE6\xE7\x07\x13\x02\x02" +
+		"\xE7\xE9\x05\x06\x04\x02\xE8\xE6\x03\x02\x02\x02\xE9\xEC\x03\x02\x02\x02" +
+		"\xEA\xE8\x03\x02\x02\x02\xEA\xEB\x03\x02\x02\x02\xEB\xEE\x03\x02\x02\x02" +
+		"\xEC\xEA\x03\x02\x02\x02\xED\xEF\x07\x13\x02\x02\xEE\xED\x03\x02\x02\x02" +
+		"\xEE\xEF\x03\x02\x02\x02\xEF\xF0\x03\x02\x02\x02\xF0\xF1\x07\x18\x02\x02" +
+		"\xF1\x1F\x03\x02\x02\x02\xF2\xF3\x07\r\x02\x02\xF3\xF4\x07\x17\x02\x02" +
+		"\xF4\xF5\x07\x11\x02\x02\xF5\xF6\x07\x13\x02\x02\xF6\xFB\x05\x06\x04\x02" +
+		"\xF7\xF8\x07\x13\x02\x02\xF8\xFA\x05\x06\x04\x02\xF9\xF7\x03\x02\x02\x02" +
+		"\xFA\xFD\x03\x02\x02\x02\xFB\xF9\x03\x02\x02\x02\xFB\xFC\x03\x02\x02\x02" +
+		"\xFC\xFF\x03\x02\x02\x02\xFD\xFB\x03\x02\x02\x02\xFE\u0100\x07\x13\x02" +
+		"\x02\xFF\xFE\x03\x02\x02\x02\xFF\u0100\x03\x02\x02\x02\u0100\u0101\x03" +
+		"\x02\x02\x02\u0101\u0102\x07\x18\x02\x02\u0102!\x03\x02\x02\x02\u0103" +
+		"\u0104\x07\x0E\x02\x02\u0104\u0105\x07\x17\x02\x02\u0105\u0106\x07\x11" +
+		"\x02\x02\u0106\u0107\x07\x13\x02\x02\u0107\u010C\x05\x06\x04\x02\u0108" +
+		"\u0109\x07\x13\x02\x02\u0109\u010B\x05\x06\x04\x02\u010A\u0108\x03\x02" +
+		"\x02\x02\u010B\u010E\x03\x02\x02\x02\u010C\u010A\x03\x02\x02\x02\u010C" +
+		"\u010D\x03\x02\x02\x02\u010D\u0110\x03\x02\x02\x02\u010E\u010C\x03\x02" +
+		"\x02\x02\u010F\u0111\x07\x13\x02\x02\u0110\u010F\x03\x02\x02\x02\u0110" +
+		"\u0111\x03\x02\x02\x02\u0111\u0112\x03\x02\x02\x02\u0112\u0113\x07\x18" +
+		"\x02\x02\u0113#\x03\x02\x02\x02\u0114\u0115\x07\x0F\x02\x02\u0115\u0116" +
+		"\x07\x17\x02\x02\u0116\u0117\x07\x11\x02\x02\u0117\u0118\x07\x13\x02\x02" +
+		"\u0118\u011D\x05\x06\x04\x02\u0119\u011A\x07\x13\x02\x02\u011A\u011C\x05" +
+		"\x06\x04\x02\u011B\u0119\x03\x02\x02\x02\u011C\u011F\x03\x02\x02\x02\u011D" +
+		"\u011B\x03\x02\x02\x02\u011D\u011E\x03\x02\x02\x02\u011E\u0121\x03\x02" +
+		"\x02\x02\u011F\u011D\x03\x02\x02\x02\u0120\u0122\x07\x13\x02\x02\u0121" +
+		"\u0120\x03\x02\x02\x02\u0121\u0122\x03\x02\x02\x02\u0122\u0123\x03\x02" +
+		"\x02\x02\u0123\u0124\x07\x18\x02\x02\u0124%\x03\x02\x02\x02\u0125\u0126" +
+		"\x07\x10\x02\x02\u0126\u0127\x07\x17\x02\x02\u0127\u0128\x07\x11\x02\x02" +
+		"\u0128\u0129\x07\x13\x02\x02\u0129\u012E\x05\x06\x04\x02\u012A\u012B\x07" +
+		"\x13\x02\x02\u012B\u012D\x05\x06\x04\x02\u012C\u012A\x03\x02\x02\x02\u012D" +
+		"\u0130\x03\x02\x02\x02\u012E\u012C\x03\x02\x02\x02\u012E\u012F\x03\x02" +
+		"\x02\x02\u012F\u0132\x03\x02\x02\x02\u0130\u012E\x03\x02\x02\x02\u0131" +
+		"\u0133\x07\x13\x02\x02\u0132\u0131\x03\x02\x02\x02\u0132\u0133\x03\x02" +
+		"\x02\x02\u0133\u0134\x03\x02\x02\x02\u0134\u0135\x07\x18\x02\x02\u0135" +
+		"\'\x03\x02\x02\x02 +>QUbfsw\x84\x88\x95\x99\xA6\xAA\xB7\xBB\xC8\xCC\xD9" +
+		"\xDD\xEA\xEE\xFB\xFF\u010C\u0110\u011D\u0121\u012E\u0132";
 	public static __ATN: ATN;
 	public static get _ATN(): ATN {
 		if (!BibTeXParser.__ATN) {

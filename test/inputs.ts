@@ -2,25 +2,25 @@ import {Bib} from "../src/core/type";
 
 export const MyPublications = `
 @inproceedings{ding_derepo_2020,
-\ttitle = {Derepo: a distributed privacy-preserving data repository with decentralized access control for smart health},
-\tcopyright = {All rights reserved},
-\tisbn = {1-72816-550-4},
-\tbooktitle = {2020 7th {IEEE} {International} {Conference} on {Cyber} {Security} and {Cloud} {Computing} ({CSCloud})/2020 6th {IEEE} {International} {Conference} on {Edge} {Computing} and {Scalable} {Cloud} ({EdgeCom})},
-\tpublisher = {IEEE},
-\tauthor = {Ding, Yepeng and Sato, Hiroyuki},
-\tyear = {2020},
-\tpages = {29--35},
+title = {Derepo: a distributed privacy-preserving data repository with decentralized access control for smart health},
+copyright = {All rights reserved},
+isbn = {1-72816-550-4},
+booktitle = {2020 7th {IEEE} {International} {Conference} on {Cyber} {Security} and {Cloud} {Computing} ({CSCloud})/2020 6th {IEEE} {International} {Conference} on {Edge} {Computing} and {Scalable} {Cloud} ({EdgeCom})},
+publisher = {IEEE},
+author = {Ding, Yepeng and Sato, Hiroyuki},
+year = {2020},
+pages = {29--35},
 }
 
 @inproceedings{ding_dagbase_2020,
-\ttitle = {Dagbase: a decentralized database platform {Using} {DAG}-based consensus},
-\tcopyright = {All rights reserved},
-\tisbn = {1-72817-303-5},
-\tbooktitle = {2020 {IEEE} 44th {Annual} {Computers}, {Software}, and {Applications} {Conference} ({COMPSAC})},
-\tpublisher = {IEEE},
-\tauthor = {Ding, Yepeng and Sato, Hiroyuki},
-\tyear = {2020},
-\tpages = {798--807},
+    title = {Dagbase: a decentralized database platform {Using} {DAG}-based consensus},
+    copyright = {All rights reserved},
+    isbn = {1-72817-303-5},
+    booktitle = {2020 {IEEE} 44th {Annual} {Computers}, {Software}, and {Applications} {Conference} ({COMPSAC})},
+    publisher = {IEEE},
+    author = {Ding, Yepeng and Sato, Hiroyuki},
+    year = {2020},
+    pages = {798--807},
 }
 
 
@@ -64,14 +64,14 @@ export const MyPublicationsBib: Bib = {
             type: 'inproceedings',
             id: 'ding_dagbase_2020',
             raw: '@inproceedings{ding_dagbase_2020,\n' +
-                '\ttitle = {Dagbase: a decentralized database platform {Using} {DAG}-based consensus},\n' +
-                '\tcopyright = {All rights reserved},\n' +
-                '\tisbn = {1-72817-303-5},\n' +
-                '\tbooktitle = {2020 {IEEE} 44th {Annual} {Computers}, {Software}, and {Applications} {Conference} ({COMPSAC})},\n' +
-                '\tpublisher = {IEEE},\n' +
-                '\tauthor = {Ding, Yepeng and Sato, Hiroyuki},\n' +
-                '\tyear = {2020},\n' +
-                '\tpages = {798--807},\n' +
+                'title = {Dagbase: a decentralized database platform {Using} {DAG}-based consensus},\n' +
+                'copyright = {All rights reserved},\n' +
+                'isbn = {1-72817-303-5},\n' +
+                'booktitle = {2020 {IEEE} 44th {Annual} {Computers}, {Software}, and {Applications} {Conference} ({COMPSAC})},\n' +
+                'publisher = {IEEE},\n' +
+                'author = {Ding, Yepeng and Sato, Hiroyuki},\n' +
+                'year = {2020},\n' +
+                'pages = {798--807},\n' +
                 '}',
             fields: [
                 {
@@ -100,16 +100,16 @@ export const MyPublicationsBib: Bib = {
             type: 'article',
             id: 'ding_formalism-driven_2022',
             raw: '@article{ding_formalism-driven_2022,\n' +
-                '\ttitle = {Formalism-{Driven} {Development}: {Concepts}, {Taxonomy}, and {Practice}},\n' +
-                '\tvolume = {12},\n' +
-                '\tcopyright = {All rights reserved},\n' +
-                '\tissn = {2076-3417},\n' +
-                '\turl = {https://www.mdpi.com/2076-3417/12/7/3415},\n' +
-                '\tdoi = {10.3390/app12073415},\n' +
-                '\tnumber = {7},\n' +
-                '\tjournal = {Applied Sciences},\n' +
-                '\tauthor = {Ding, Yepeng and Sato, Hiroyuki},\n' +
-                '\tyear = {2022},\n' +
+                'title = {Formalism-{Driven} {Development}: {Concepts}, {Taxonomy}, and {Practice}},\n' +
+                'volume = {12},\n' +
+                'copyright = {All rights reserved},\n' +
+                'issn = {2076-3417},\n' +
+                'url = {https://www.mdpi.com/2076-3417/12/7/3415},\n' +
+                'doi = {10.3390/app12073415},\n' +
+                'number = {7},\n' +
+                'journal = {Applied Sciences},\n' +
+                'author = {Ding, Yepeng and Sato, Hiroyuki},\n' +
+                'year = {2022},\n' +
                 '}',
             fields: [
                 {
