@@ -56,7 +56,6 @@ export class Visitor extends AbstractParseTreeVisitor<any> implements BibTeXPars
     visitEntry(ctx: EntryContext): FullEntry {
         const entry = this.getEntryType(ctx)
         this._bib.entries.push(entry);
-        console.log(entry.id + " als " + entry.type);
         return entry;
     }
 

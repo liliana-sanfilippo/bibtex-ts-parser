@@ -10,11 +10,8 @@ import {Visitor} from "./core/visitor";
  * @returns {{entries: []}}
  */
 export function parse(input: string) {
-    console.log("getParseTree");
     const parseTree = getParseTree(input);
-    console.log("new Visitor();");
     const bibVisitor = new Visitor();
-    console.log("accept");
     parseTree.accept(bibVisitor);
 
     return bibVisitor.bib;
