@@ -6,13 +6,10 @@
     "declaration": true,
     "declarationDir": "dist",
     "outDir": "dist",
-    "jsx": "react-jsx",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "strict": true
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
   },
-  "include": ["src", "test",
-    "index.js"
-  ],
-  "exclude": ["node_modules", "demo", "dist"]
+  "include": ["src", "umd", "cjs", "webpack.config.prod.ts", "webpack.config.dev.ts", "dist"],
 }

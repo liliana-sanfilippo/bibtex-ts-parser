@@ -15,13 +15,13 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.ts', '.js'], // Wichtig für .ts-Dateien
+        extensions: ['.ts', '.js'],
         fallback: {
             fs: false
         }
     },
     output: {
-        filename: 'bibtex-ts-parser-dev.js', // .js statt .ts, weil Webpack JS ausgibt!
+        filename: 'bibtex-ts-parser-dev.js',
         library: {
             name: 'BibtexParser',
             type: 'commonjs'

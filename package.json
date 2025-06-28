@@ -1,6 +1,6 @@
 {
   "name": "@liliana-sanfilippo/bibtex-ts-parser",
-  "version": "0.1.2",
+  "version": "0.1.6",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
@@ -9,21 +9,25 @@
   "description": "A BitTeX parser implemented in TypeScript (ESNext). Transforming a BibTeX file to an object in memory or a semi-structured file on disk. Adapted from https://github.com/yepengding/bibtex-js-parser",
   "main": "./dist/cjs/bibtex-ts-parser.js",
   "module": "./dist/umd/bibtex-ts-parser.js",
-  "types": "./dist/src/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/umd/bibtex-ts-parser.js",
-      "require": "./dist/cjs/bibtex-ts-parser.js",
-      "types": "./dist/index.d.ts"
-    }
-  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "index.d.ts",
+    "index.js"
+  ],
   "scripts": {
     "dev": "webpack --config webpack.config.dev.ts",
-    "build-commonjs": "LIB_TYPE=commonjs webpack --config webpack.config.prod.ts",
-    "build-umd": "LIB_TYPE=umd webpack --config webpack.config.prod.ts",
-    "build:types": "tsc --emitDeclarationOnly",
-    "build": "npm run build:types && npm run build-commonjs && npm run build-umd",
+    "build-commonjs": "LIB_TYPE=commonjs ts-node --esm node_modules/webpack/bin/webpack.js --config webpack.config.prod.ts",
+    "build-umd": "LIB_TYPE=umd ts-node --esm node_modules/webpack/bin/webpack.js --config webpack.config.prod.ts",
+    "build": "npm run build-commonjs && npm run build-umd",
     "test": "npm run dev && mocha --require source-map-support/register dist/dev/bibtex-ts-parser-dev.js"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/bibtex-ts-parser.js",
+      "import": "./dist/umd/bibtex-ts-parser.js",
+      "types": "./dist/src/index.d.ts"
+    }
   },
   "keywords": [
     "bibtex",
@@ -46,20 +50,19 @@
     "@babel/core": "^7.27.7",
     "@babel/preset-env": "^7.27.2",
     "@types/chai": "^5.2.2",
-    "@types/jest": "^30.0.0",
     "@types/mocha": "^10.0.10",
-    "@types/node": "^24.0.4",
+    "@types/node": "^18.19.113",
     "antlr4ts-cli": "^0.5.0-alpha.4",
     "babel-loader": "^8.4.1",
     "chai": "^4.3.6",
     "glob": "^8.0.3",
+    "license-webpack-plugin": "^4.0.2",
     "mocha": "^10.8.2",
     "source-map-support": "^0.5.21",
     "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.3",
+    "typescript": "5.2",
     "webpack": "5.94.0",
-    "webpack-cli": "^4.10.0",
-    "webpack-license-plugin": "^4.2.2"
+    "webpack-cli": "^4.10.0"
   }
 }

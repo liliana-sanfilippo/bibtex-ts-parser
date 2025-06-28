@@ -1,2 +1,2 @@
 'use strict';
-module.exports = require('./cjs/bibtex-ts-parser');
+module.exports = require('./dist/cjs/bibtex-ts-parser');
