@@ -1,5 +1,5 @@
 import {expect} from "chai";
-import {parse} from "../src/bibtex_parser"
+import {parse} from "../bibtex_parser"
 import {MyPublications} from "./inputs";
 
 describe('Parser', function () {

@@ -1,4 +1,4 @@
-import {Bib} from "../src/core/type";
+import {Bib} from "../core/type";
 
 export const MyPublications = `
 @inproceedings{ding_derepo_2020,

@@ -1,5 +1,5 @@
 import {expect} from "chai";
-import {parseToJSON, parseToJSONString} from "../src"
+import {parseToJSON, parseToJSONString} from "../index"
 import {MyPublications} from "./inputs";
 
 describe('Index', function () {

@@ -106,3 +106,7 @@ dist
 # IDE
 .idea/
 .vscode/
+/dev/
+
+# Package
+liliana-sanfilippo-bibtex-ts-parser-1.0.3.tgz

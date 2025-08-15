@@ -1,5 +1,5 @@
 import {parse} from "./bibtex_parser";
-import {parseBibToJSON} from "./bibtex_generator";
+import {parseBibToJSON, parseToEntries} from "./bibtex_generator";
 import {Bib, EntryJSON} from "./core/type";
 
 /**
@@ -14,6 +14,18 @@ export const parseToJSON = (input: string): EntryJSON[] => {
 }
 
 /**
+ * Parse BibTeX string to Entry list
+ *
+ * @param input BibTeX string
+ * @returns {*} BibTeX Entry list
+ */
+export const parseToEntry =  (input: string): Entry[] => {
+    const bib: Bib = parse(input);
+    return parseToEntries(bib);
+}
+
+
+/**
  * Parse BibTeX string to JSON string
  *
  * @param input BibTeX string
@@ -25,13 +37,13 @@ export const parseToJSONString = (input: string): string => {
     return JSON.stringify(parseBibToJSON(bib));
 }
 
+
 /**
  * Entry Interface to work with in TypeScript projects.
  */
 export interface Entry {
     id: string,
     type: string,
-    raw: string,
     title: string,
     author?: string,
     editor?: string,

@@ -4,7 +4,7 @@ const glob = require("glob");
 module.exports = {
     mode: 'development',
     devtool: "source-map",
-    entry: glob.sync('./test/**/*.test.ts'),
+    entry: glob.sync('./src/test/**/*.test.ts').map((file) => './' + file),
     module: {
         rules: [
             {
@@ -23,9 +23,9 @@ module.exports = {
     output: {
         filename: 'bibtex-ts-parser-dev.js',
         library: {
-            name: 'BibtexParser',
+            name: 'AuthorNameParser',
             type: 'commonjs'
         },
-        path: path.resolve(__dirname, 'dist/dev'),
+        path: path.resolve(__dirname, 'dev'),
     }
 };
