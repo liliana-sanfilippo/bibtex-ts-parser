@@ -103,5 +103,14 @@ export interface Entry {
         institution?: string,
         isbn?: string,
         edition?: string,
-        howpublished?: string
+        howpublished?: string,
+        chapter?: string,
+        subtitle?: string,
+        holder?: string,
+        eventtitle?: string,
+        eventdate?: string
+        date?: string,
+        venue?: string,
+        accessdate?: string,
+        version?: string
 }

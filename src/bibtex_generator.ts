@@ -106,6 +106,15 @@ const setters: { [K in keyof Entry]?: (e: Entry, v: string) => void } = {
     edition:  (e,v) => { e.edition = v; },
     howpublished:  (e,v) => { e.howpublished = v; },
     organization:  (e,v) => { e.organization = v; },
+    version:  (e,v) => { e.version = v; },
+    chapter:  (e,v) => { e.chapter = v; },
+    subtitle:  (e,v) => { e.subtitle = v; },
+    holder:  (e,v) => { e.holder = v; },
+    date:  (e,v) => { e.date = v; },
+    eventtitle:  (e,v) => { e.eventtitle = v; },
+    eventdate:  (e,v) => { e.eventdate = v; },
+    venue:  (e,v) => { e.venue = v; },
+    accessdate:  (e,v) => { e.accessdate = v; },
     year:   (e,v) => { const n = parseInt(v,10); e.year   = Number.isNaN(n) ? v : n; },
     number: (e,v) => { const n = parseInt(v,10); e.number = Number.isNaN(n) ? v : n; }
 };
