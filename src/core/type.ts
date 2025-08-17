@@ -51,6 +51,10 @@ export enum EntryTypeEnum {
     TECHREPORT = "techreport",
     UNPUBLISHED = "unpublished",
     DATASET = "dataset",
+    SOFTWARE = "software",
+    GENAI = "genai",
+    ONLINE = "online",
+    CONFERENCE = "conference"
 }
 
 /**

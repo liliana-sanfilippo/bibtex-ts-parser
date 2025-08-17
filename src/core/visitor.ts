@@ -3,16 +3,16 @@ import {BibTeXParserVisitor} from "../base/BibTeXParserVisitor";
 import {
     ArticleContext,
     BookContext,
-    BookletContext, DatasetContext,
+    BookletContext, ConferenceContext, DatasetContext,
     EntryContext,
-    FieldContext,
+    FieldContext, GenaiContext,
     InbookContext,
     IncollectionContext,
     InproceedingsContext,
     ManualContext,
-    MastersthesisContext, MiscContext,
+    MastersthesisContext, MiscContext, OnlineContext,
     PhdthesisContext,
-    ProceedingsContext, TechreportContext, UnpublishedContext
+    ProceedingsContext, SoftwareContext, TechreportContext, UnpublishedContext
 } from "../base/BibTeXParser";
 import {Bib, EntryTypeEnum, Field, FullEntry, ValueType} from "./type";
 import {ParserRuleContext} from "antlr4ts/ParserRuleContext";
@@ -81,6 +81,10 @@ export class Visitor extends AbstractParseTreeVisitor<any> implements BibTeXPars
         if (ctx.unpublished()) return this.visitUnpublished(ctx.unpublished()!);
         if (ctx.misc()) return this.visitMisc(ctx.misc()!);
         if (ctx.dataset()) return this.visitDataset(ctx.dataset ()!);
+        if (ctx.online()) return this.visitOnline(ctx.online ()!);
+        if (ctx.conference()) return this.visitConference(ctx.conference ()!);
+        if (ctx.genai()) return this.visitGenai(ctx.genai ()!);
+        if (ctx.software()) return this.visitSoftware(ctx.software ()!);
         throw new Error("Unknown entry type in visitEntry");
     }
 
@@ -211,6 +215,22 @@ export class Visitor extends AbstractParseTreeVisitor<any> implements BibTeXPars
 
     visitDataset(ctx: DatasetContext) {
         return this.newEntry(EntryTypeEnum.DATASET, ctx);
+    }
+
+    visitSoftware(ctx: SoftwareContext) {
+        return this.newEntry(EntryTypeEnum.SOFTWARE, ctx);
+    }
+
+    visitGenai(ctx: GenaiContext) {
+        return this.newEntry(EntryTypeEnum.GENAI, ctx);
+    }
+
+    visitOnline(ctx: OnlineContext) {
+        return this.newEntry(EntryTypeEnum.ONLINE, ctx);
+    }
+
+    visitConference(ctx: ConferenceContext) {
+        return this.newEntry(EntryTypeEnum.CONFERENCE, ctx);
     }
 
 }

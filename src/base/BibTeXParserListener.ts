@@ -22,6 +22,10 @@ import { MiscContext } from "./BibTeXParser";
 import { TechreportContext } from "./BibTeXParser";
 import { UnpublishedContext } from "./BibTeXParser";
 import { DatasetContext } from "./BibTeXParser";
+import { SoftwareContext } from "./BibTeXParser";
+import { OnlineContext } from "./BibTeXParser";
+import { ConferenceContext } from "./BibTeXParser";
+import { GenaiContext } from "./BibTeXParser";
 
 
 /**
@@ -237,5 +241,49 @@ export interface BibTeXParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitDataset?: (ctx: DatasetContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `BibTeXParser.software`.
+	 * @param ctx the parse tree
+	 */
+	enterSoftware?: (ctx: SoftwareContext) => void;
+	/**
+	 * Exit a parse tree produced by `BibTeXParser.software`.
+	 * @param ctx the parse tree
+	 */
+	exitSoftware?: (ctx: SoftwareContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `BibTeXParser.online`.
+	 * @param ctx the parse tree
+	 */
+	enterOnline?: (ctx: OnlineContext) => void;
+	/**
+	 * Exit a parse tree produced by `BibTeXParser.online`.
+	 * @param ctx the parse tree
+	 */
+	exitOnline?: (ctx: OnlineContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `BibTeXParser.conference`.
+	 * @param ctx the parse tree
+	 */
+	enterConference?: (ctx: ConferenceContext) => void;
+	/**
+	 * Exit a parse tree produced by `BibTeXParser.conference`.
+	 * @param ctx the parse tree
+	 */
+	exitConference?: (ctx: ConferenceContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `BibTeXParser.genai`.
+	 * @param ctx the parse tree
+	 */
+	enterGenai?: (ctx: GenaiContext) => void;
+	/**
+	 * Exit a parse tree produced by `BibTeXParser.genai`.
+	 * @param ctx the parse tree
+	 */
+	exitGenai?: (ctx: GenaiContext) => void;
 }
 

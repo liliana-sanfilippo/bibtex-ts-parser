@@ -22,6 +22,10 @@ import { MiscContext } from "./BibTeXParser";
 import { TechreportContext } from "./BibTeXParser";
 import { UnpublishedContext } from "./BibTeXParser";
 import { DatasetContext } from "./BibTeXParser";
+import { SoftwareContext } from "./BibTeXParser";
+import { OnlineContext } from "./BibTeXParser";
+import { ConferenceContext } from "./BibTeXParser";
+import { GenaiContext } from "./BibTeXParser";
 
 
 /**
@@ -164,5 +168,33 @@ export interface BibTeXParserVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitDataset?: (ctx: DatasetContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `BibTeXParser.software`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSoftware?: (ctx: SoftwareContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `BibTeXParser.online`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitOnline?: (ctx: OnlineContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `BibTeXParser.conference`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitConference?: (ctx: ConferenceContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `BibTeXParser.genai`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitGenai?: (ctx: GenaiContext) => Result;
 }
 
