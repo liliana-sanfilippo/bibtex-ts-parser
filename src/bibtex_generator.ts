@@ -15,10 +15,11 @@ export function parseBibToJSON(bib: Bib): EntryJSON[] {
             raw: entry.raw
         }
         entry.fields.forEach((field: Field) => {
+            field.key = checkField(field.key);
             if (field.type === ValueType.INTEGER && typeof field.value === 'string') {
                 entryJSON[field.key] = parseInt(field.value);
             } else if (field.type === ValueType.INTEGER && typeof field.value === 'number') {
-                entryJSON[field.key] = field.value; // ist schon eine Zahl
+                entryJSON[field.key] = field.value;
             } else if (field.type === ValueType.STRING && typeof field.value === 'string') {
                 entryJSON[field.key] = toPlainString(field.value);
             }
@@ -35,6 +36,19 @@ export function parseBibToJSON(bib: Bib): EntryJSON[] {
  */
 const toPlainString = (str: string) => {
     return str.replaceAll(/[{}]/g, "").replace("\"", "\\\"");
+}
+
+
+function checkField(name: string): string {
+    switch (name) {
+        case "journaltitle":
+            return "journal";
+        case "maintitle":
+            return "title";
+        case "bookauthor":
+            return "author";
+        default: return name;
+    }
 }
 
 
@@ -87,6 +101,11 @@ const setters: { [K in keyof Entry]?: (e: Entry, v: string) => void } = {
     note:      (e,v) => { e.note = v; },
     keyword:   (e,v) => { e.keyword = v; },
     abstract:  (e,v) => { e.abstract = v; },
+    isbn:  (e,v) => { e.isbn = v; },
+    day:  (e,v) => { e.day = v; },
+    edition:  (e,v) => { e.edition = v; },
+    howpublished:  (e,v) => { e.howpublished = v; },
+    organization:  (e,v) => { e.organization = v; },
     year:   (e,v) => { const n = parseInt(v,10); e.year   = Number.isNaN(n) ? v : n; },
     number: (e,v) => { const n = parseInt(v,10); e.number = Number.isNaN(n) ? v : n; }
 };

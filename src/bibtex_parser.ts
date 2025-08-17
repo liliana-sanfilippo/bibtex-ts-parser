@@ -13,7 +13,6 @@ export function parse(input: string) {
     const parseTree = getParseTree(input);
     const bibVisitor = new Visitor();
     parseTree.accept(bibVisitor);
-
     return bibVisitor.bib;
 }
 

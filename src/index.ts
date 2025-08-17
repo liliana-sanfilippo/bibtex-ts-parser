@@ -66,5 +66,12 @@ export interface Entry {
     copyright?: string,
     note?: string,
     keyword?: string,
-    abstract?: string
+    abstract?: string,
+    day?: string,
+    organization?: string,
+    institution?: string,
+    isbn?: string,
+    edition?: string,
+    howpublished?: string,
+
 }
