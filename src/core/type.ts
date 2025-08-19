@@ -54,7 +54,10 @@ export enum EntryTypeEnum {
     SOFTWARE = "software",
     GENAI = "genai",
     ONLINE = "online",
-    TRANSCRIPT = "transcript"
+    TRANSCRIPT = "transcript",
+    AUDIO = "audio",
+    VIDEO = "video",
+    PATENT = "patent"
 }
 
 /**

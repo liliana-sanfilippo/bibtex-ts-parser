@@ -1,7 +1,7 @@
 import {AbstractParseTreeVisitor} from 'antlr4ts/tree/AbstractParseTreeVisitor';
 import {BibTeXParserVisitor} from "../base/BibTeXParserVisitor";
 import {
-    ArticleContext,
+    ArticleContext, AudioContext,
     BookContext,
     BookletContext, DatasetContext,
     EntryContext,
@@ -10,9 +10,9 @@ import {
     IncollectionContext,
     InproceedingsContext,
     ManualContext,
-    MastersthesisContext, MiscContext, OnlineContext,
+    MastersthesisContext, MiscContext, OnlineContext, PatentContext,
     PhdthesisContext,
-    ProceedingsContext, SoftwareContext, TechreportContext, TranscriptContext, UnpublishedContext
+    ProceedingsContext, SoftwareContext, TechreportContext, TranscriptContext, UnpublishedContext, VideoContext
 } from "../base/BibTeXParser";
 import {Bib, EntryTypeEnum, Field, FullEntry, ValueType} from "./type";
 import {ParserRuleContext} from "antlr4ts/ParserRuleContext";
@@ -85,6 +85,9 @@ export class Visitor extends AbstractParseTreeVisitor<any> implements BibTeXPars
         if (ctx.transcript()) return this.visitTranscript(ctx.transcript ()!);
         if (ctx.genai()) return this.visitGenai(ctx.genai ()!);
         if (ctx.software()) return this.visitSoftware(ctx.software ()!);
+        if (ctx.video()) return this.visitVideo(ctx.video ()!);
+        if (ctx.audio()) return this.visitAudio(ctx.audio ()!);
+        if (ctx.patent()) return this.visitPatent(ctx.patent ()!);
         throw new Error("Unknown entry type in visitEntry");
     }
 
@@ -231,6 +234,17 @@ export class Visitor extends AbstractParseTreeVisitor<any> implements BibTeXPars
 
     visitTranscript(ctx: TranscriptContext) {
         return this.newEntry(EntryTypeEnum.TRANSCRIPT, ctx);
+    }
+    visitVideo(ctx: VideoContext) {
+        return this.newEntry(EntryTypeEnum.VIDEO, ctx);
+    }
+
+    visitAudio(ctx: AudioContext) {
+        return this.newEntry(EntryTypeEnum.AUDIO, ctx);
+    }
+
+    visitPatent(ctx: PatentContext) {
+        return this.newEntry(EntryTypeEnum.PATENT, ctx);
     }
 
 }

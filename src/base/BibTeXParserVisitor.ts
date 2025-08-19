@@ -24,9 +24,11 @@ import { UnpublishedContext } from "./BibTeXParser";
 import { DatasetContext } from "./BibTeXParser";
 import { SoftwareContext } from "./BibTeXParser";
 import { OnlineContext } from "./BibTeXParser";
-import { ConferenceContext } from "./BibTeXParser";
 import { GenaiContext } from "./BibTeXParser";
 import { TranscriptContext } from "./BibTeXParser";
+import { VideoContext } from "./BibTeXParser";
+import { PatentContext } from "./BibTeXParser";
+import { AudioContext } from "./BibTeXParser";
 
 
 /**
@@ -185,13 +187,6 @@ export interface BibTeXParserVisitor<Result> extends ParseTreeVisitor<Result> {
 	visitOnline?: (ctx: OnlineContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `BibTeXParser.conference`.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	visitConference?: (ctx: ConferenceContext) => Result;
-
-	/**
 	 * Visit a parse tree produced by `BibTeXParser.genai`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -204,5 +199,26 @@ export interface BibTeXParserVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitTranscript?: (ctx: TranscriptContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `BibTeXParser.video`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitVideo?: (ctx: VideoContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `BibTeXParser.patent`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitPatent?: (ctx: PatentContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `BibTeXParser.audio`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitAudio?: (ctx: AudioContext) => Result;
 }
 

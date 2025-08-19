@@ -24,9 +24,11 @@ import { UnpublishedContext } from "./BibTeXParser";
 import { DatasetContext } from "./BibTeXParser";
 import { SoftwareContext } from "./BibTeXParser";
 import { OnlineContext } from "./BibTeXParser";
-import { ConferenceContext } from "./BibTeXParser";
 import { GenaiContext } from "./BibTeXParser";
 import { TranscriptContext } from "./BibTeXParser";
+import { VideoContext } from "./BibTeXParser";
+import { PatentContext } from "./BibTeXParser";
+import { AudioContext } from "./BibTeXParser";
 
 
 /**
@@ -266,17 +268,6 @@ export interface BibTeXParserListener extends ParseTreeListener {
 	exitOnline?: (ctx: OnlineContext) => void;
 
 	/**
-	 * Enter a parse tree produced by `BibTeXParser.conference`.
-	 * @param ctx the parse tree
-	 */
-	enterConference?: (ctx: ConferenceContext) => void;
-	/**
-	 * Exit a parse tree produced by `BibTeXParser.conference`.
-	 * @param ctx the parse tree
-	 */
-	exitConference?: (ctx: ConferenceContext) => void;
-
-	/**
 	 * Enter a parse tree produced by `BibTeXParser.genai`.
 	 * @param ctx the parse tree
 	 */
@@ -297,5 +288,38 @@ export interface BibTeXParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitTranscript?: (ctx: TranscriptContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `BibTeXParser.video`.
+	 * @param ctx the parse tree
+	 */
+	enterVideo?: (ctx: VideoContext) => void;
+	/**
+	 * Exit a parse tree produced by `BibTeXParser.video`.
+	 * @param ctx the parse tree
+	 */
+	exitVideo?: (ctx: VideoContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `BibTeXParser.patent`.
+	 * @param ctx the parse tree
+	 */
+	enterPatent?: (ctx: PatentContext) => void;
+	/**
+	 * Exit a parse tree produced by `BibTeXParser.patent`.
+	 * @param ctx the parse tree
+	 */
+	exitPatent?: (ctx: PatentContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `BibTeXParser.audio`.
+	 * @param ctx the parse tree
+	 */
+	enterAudio?: (ctx: AudioContext) => void;
+	/**
+	 * Exit a parse tree produced by `BibTeXParser.audio`.
+	 * @param ctx the parse tree
+	 */
+	exitAudio?: (ctx: AudioContext) => void;
 }
 
