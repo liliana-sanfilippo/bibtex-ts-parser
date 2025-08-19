@@ -26,6 +26,7 @@ import { SoftwareContext } from "./BibTeXParser";
 import { OnlineContext } from "./BibTeXParser";
 import { ConferenceContext } from "./BibTeXParser";
 import { GenaiContext } from "./BibTeXParser";
+import { TranscriptContext } from "./BibTeXParser";
 
 
 /**
@@ -196,5 +197,12 @@ export interface BibTeXParserVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitGenai?: (ctx: GenaiContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `BibTeXParser.transcript`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitTranscript?: (ctx: TranscriptContext) => Result;
 }
 

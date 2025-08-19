@@ -26,6 +26,7 @@ import { SoftwareContext } from "./BibTeXParser";
 import { OnlineContext } from "./BibTeXParser";
 import { ConferenceContext } from "./BibTeXParser";
 import { GenaiContext } from "./BibTeXParser";
+import { TranscriptContext } from "./BibTeXParser";
 
 
 /**
@@ -285,5 +286,16 @@ export interface BibTeXParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitGenai?: (ctx: GenaiContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `BibTeXParser.transcript`.
+	 * @param ctx the parse tree
+	 */
+	enterTranscript?: (ctx: TranscriptContext) => void;
+	/**
+	 * Exit a parse tree produced by `BibTeXParser.transcript`.
+	 * @param ctx the parse tree
+	 */
+	exitTranscript?: (ctx: TranscriptContext) => void;
 }
 

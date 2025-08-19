@@ -3,7 +3,7 @@ import {BibTeXParserVisitor} from "../base/BibTeXParserVisitor";
 import {
     ArticleContext,
     BookContext,
-    BookletContext, ConferenceContext, DatasetContext,
+    BookletContext, DatasetContext,
     EntryContext,
     FieldContext, GenaiContext,
     InbookContext,
@@ -12,7 +12,7 @@ import {
     ManualContext,
     MastersthesisContext, MiscContext, OnlineContext,
     PhdthesisContext,
-    ProceedingsContext, SoftwareContext, TechreportContext, UnpublishedContext
+    ProceedingsContext, SoftwareContext, TechreportContext, TranscriptContext, UnpublishedContext
 } from "../base/BibTeXParser";
 import {Bib, EntryTypeEnum, Field, FullEntry, ValueType} from "./type";
 import {ParserRuleContext} from "antlr4ts/ParserRuleContext";
@@ -82,7 +82,7 @@ export class Visitor extends AbstractParseTreeVisitor<any> implements BibTeXPars
         if (ctx.misc()) return this.visitMisc(ctx.misc()!);
         if (ctx.dataset()) return this.visitDataset(ctx.dataset ()!);
         if (ctx.online()) return this.visitOnline(ctx.online ()!);
-        if (ctx.conference()) return this.visitConference(ctx.conference ()!);
+        if (ctx.transcript()) return this.visitTranscript(ctx.transcript ()!);
         if (ctx.genai()) return this.visitGenai(ctx.genai ()!);
         if (ctx.software()) return this.visitSoftware(ctx.software ()!);
         throw new Error("Unknown entry type in visitEntry");
@@ -229,8 +229,8 @@ export class Visitor extends AbstractParseTreeVisitor<any> implements BibTeXPars
         return this.newEntry(EntryTypeEnum.ONLINE, ctx);
     }
 
-    visitConference(ctx: ConferenceContext) {
-        return this.newEntry(EntryTypeEnum.CONFERENCE, ctx);
+    visitTranscript(ctx: TranscriptContext) {
+        return this.newEntry(EntryTypeEnum.TRANSCRIPT, ctx);
     }
 
 }
