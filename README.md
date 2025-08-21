@@ -34,12 +34,12 @@ yarn add @liliana-sanfilippo/bibtex-ts-parser
 2. Import `BibtexParser`.
 
 ```javascript
-import {BibtexParser} from from "@liliana-sanfilippo/bibtex-ts-parser";
+import {BibtexParser} from "@liliana-sanfilippo/bibtex-ts-parser";
 ```
 If necessary or wanted also import Entry type to work with. 
 
 ```javascript
-import {Entry} from from "@liliana-sanfilippo/bibtex-ts-parser";
+import {Entry} from "@liliana-sanfilippo/bibtex-ts-parser";
 ```
 
 ### In-Browser Use
