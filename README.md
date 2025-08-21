@@ -85,7 +85,7 @@ npm run test
 
 ### For Production
 
-Build a UMD script to `dist/umd/bibtex-ts-parser.js` and a CommonJS script to `dist/cjs/bibtex-ts-parser.js`.
+Build a UMD script to `dist/umd/bibtex-ts-parser.js` and a CommonJS script to `dist/cjs/bibtex-ts-parser.js` and a module to to `dist/module/bibtex-ts-parser.js`.
 
 ```shell
 npm run build
