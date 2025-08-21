@@ -6,7 +6,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "homepage": "https://github.com/liliana-sanfilippo/bibtex-ts-parser",
-  "description": "A BitTeX parser implemented in TypeScript (ESNext). Transforming a BibTeX file to an object in memory or a semi-structured file on disk. Adapted from https://github.com/yepengding/bibtex-js-parser",
+  "description": "A BitTeX parser implemented in TypeScript (ESNext). Transforming a BibTeX file to an object in memory or a semi-structured file on disk. Based on https://github.com/yepengding/bibtex-js-parser",
   "main": "./dist/cjs/bibtex-ts-parser.js",
   "browser": "./dist/umd/bibtex-ts-parser.js",
   "types": "./dist/types/index.d.ts",
