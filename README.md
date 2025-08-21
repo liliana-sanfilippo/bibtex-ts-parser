@@ -44,7 +44,7 @@ import {Entry} from from "@liliana-sanfilippo/bibtex-ts-parser";
 
 ### In-Browser Use
 
-1. Include `bibtex-ts-parser.js` from (CDN)[https://unpkg.com/@liliana-sanfilippo/bibtex-ts-parser/dist/umd/bibtex-ts-parser.js.
+1. Include `bibtex-ts-parser.js` from (CDN)[https://unpkg.com/@liliana-sanfilippo/bibtex-ts-parser/dist/umd/bibtex-ts-parser.js].
 
 ```html
 <script src="https://unpkg.com/@liliana-sanfilippo/bibtex-ts-parser/dist/umd/bibtex-ts-parser.js"></script>
@@ -67,7 +67,7 @@ I used Node.js v20.19.3
 
 ### For Dev
 
-Build a CommonJS script to `dist/dev/bibtex-js-parser-dev.js` with source map.
+Build a CommonJS script to `dist/dev/bibtex-ts-parser-dev.js` with source map.
 
 ```shell
 npm run dev
@@ -85,7 +85,7 @@ npm run test
 
 ### For Production
 
-Build a UMD script to `dist/umd/bibtex-ts-parser.js` and a CommonJS script to `dist/cjs/bibtex-js-parser.js`.
+Build a UMD script to `dist/umd/bibtex-ts-parser.js` and a CommonJS script to `dist/cjs/bibtex-ts-parser.js`.
 
 ```shell
 npm run build
