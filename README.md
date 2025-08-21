@@ -44,7 +44,7 @@ import {Entry} from from "@liliana-sanfilippo/bibtex-ts-parser";
 
 ### In-Browser Use
 
-1. Include `bibtex-ts-parser.js` from (CDN)[https://unpkg.com/@liliana-sanfilippo/bibtex-ts-parser/dist/umd/bibtex-ts-parser.js].
+1. Include `bibtex-ts-parser.js` from [CDN](https://unpkg.com/@liliana-sanfilippo/bibtex-ts-parser/dist/umd/bibtex-ts-parser.js).
 
 ```html
 <script src="https://unpkg.com/@liliana-sanfilippo/bibtex-ts-parser/dist/umd/bibtex-ts-parser.js"></script>
