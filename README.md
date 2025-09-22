@@ -1,6 +1,6 @@
 # BibTeX TS Parser
 
-![npm](https://img.shields.io/npm/v/@liliana-sanfilippo/bibtex-ts-parser) 	![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen) [![publish to github](https://github.com/liliana-sanfilippo/bibtex-ts-parser/actions/workflows/publish.yml/badge.svg)](https://github.com/liliana-sanfilippo/bibtex-ts-parser/actions/workflows/publish.yml)
+![npm](https://img.shields.io/npm/v/@liliana-sanfilippo/bibtex-ts-parser) 	![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen) [![publish to github](https://github.com/liliana-sanfilippo/bibtex-ts-parser/actions/workflows/publish.yml/badge.svg)](https://github.com/liliana-sanfilippo/bibtex-ts-parser/actions/workflows/publish.yml) [![publish to npm](https://github.com/liliana-sanfilippo/bibtex-ts-parser/actions/workflows/publish-npm.yml/badge.svg)](https://github.com/liliana-sanfilippo/bibtex-ts-parser/actions/workflows/publish-npm.yml)
 
 BibTeX TS Parser based on the JS Parser from [bibtex js parser](https://github.com/yepengding/bibtex-js-parser). Now in TypeScript (ESNext).
 
