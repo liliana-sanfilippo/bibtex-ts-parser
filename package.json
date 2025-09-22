@@ -2,8 +2,7 @@
   "name": "@liliana-sanfilippo/bibtex-ts-parser",
   "version": "2.0.5",
   "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "access": "public"
   },
   "homepage": "https://github.com/liliana-sanfilippo/bibtex-ts-parser",
   "description": "A BitTeX parser implemented in TypeScript (ESNext). Transforming a BibTeX file to an object in memory or a semi-structured file on disk. Based on https://github.com/yepengding/bibtex-js-parser",
