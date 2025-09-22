@@ -1,4 +1,4 @@
-name: publish to github 
+name: publish to npm 
 
 on:
   push:
@@ -27,5 +27,5 @@ jobs:
       - run: npm test
       - uses: JS-DevTools/npm-publish@v4
         with:
-          token: ${{ secrets.NPM_TOKEN }}
-          registry: "https://npm.pkg.github.com"
+          token: ${{ secrets.NPMJS_TOKEN }}
+          registry: "https://registry.npmjs.org/"
