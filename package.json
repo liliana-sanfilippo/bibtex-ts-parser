@@ -39,7 +39,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/liliana-sanfilippo/bibtex-ts-parser"
+    "url": "git+https://github.com/liliana-sanfilippo/bibtex-ts-parser"
   },
   "bugs": {
     "url": "https://github.com/liliana-sanfilippo/bibtex-ts-parser/issues"
