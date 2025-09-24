@@ -17,6 +17,7 @@ import {
 import {Bib, EntryTypeEnum, Field, FullEntry, ValueType} from "./type";
 import {ParserRuleContext} from "antlr4ts/ParserRuleContext";
 import {Interval} from "antlr4ts/misc";
+import {TerminalNode} from "antlr4ts/tree/TerminalNode";
 
 
 /**
@@ -122,10 +123,10 @@ export class Visitor extends AbstractParseTreeVisitor<any> implements BibTeXPars
      *
      * @param type The type of the entry (e.g. ARTICLE, BOOK, etc.).
      * @param ctx The parser rule context containing the entry.
+     * @param idNode The Terminal Node of the Context
      * @returns The constructed `FullEntry`.
      */
-    newEntry(type: EntryTypeEnum, ctx: ParserRuleContext): FullEntry {
-        const idNode = (ctx as any).IDENTIFIER?.();
+    newEntry(type: EntryTypeEnum, ctx: ParserRuleContext, idNode: TerminalNode): FullEntry {
         const id = Array.isArray(idNode)
             ? idNode[0].symbol.text
             : idNode?.symbol.text ?? 'MISC';
@@ -165,86 +166,107 @@ export class Visitor extends AbstractParseTreeVisitor<any> implements BibTeXPars
     // === Visitor methods for each BibTeX entry type ===
 
     visitArticle(ctx: ArticleContext) {
-        return this.newEntry(EntryTypeEnum.ARTICLE, ctx);
+        const idNode = ctx.IDENTIFIER();
+        return this.newEntry(EntryTypeEnum.ARTICLE, ctx, idNode);
     }
 
     visitBook(ctx: BookContext) {
-        return this.newEntry(EntryTypeEnum.BOOK, ctx);
+        const idNode = ctx.IDENTIFIER();
+        return this.newEntry(EntryTypeEnum.BOOK, ctx, idNode);
     }
 
     visitBooklet(ctx: BookletContext) {
-        return this.newEntry(EntryTypeEnum.BOOKLET, ctx);
+        const idNode = ctx.IDENTIFIER();
+        return this.newEntry(EntryTypeEnum.BOOKLET, ctx, idNode);
     }
 
     visitInbook(ctx: InbookContext) {
-        return this.newEntry(EntryTypeEnum.INBOOK, ctx);
+        const idNode = ctx.IDENTIFIER();
+        return this.newEntry(EntryTypeEnum.INBOOK, ctx, idNode);
     }
 
     visitIncollection(ctx: IncollectionContext) {
-        return this.newEntry(EntryTypeEnum.INCOLLECTION, ctx);
+        const idNode = ctx.IDENTIFIER();
+        return this.newEntry(EntryTypeEnum.INCOLLECTION, ctx, idNode);
     }
 
     visitInproceedings(ctx: InproceedingsContext) {
-        return this.newEntry(EntryTypeEnum.INPROCEEDINGS, ctx);
+        const idNode = ctx.IDENTIFIER();
+        return this.newEntry(EntryTypeEnum.INPROCEEDINGS, ctx, idNode);
     }
 
     visitProceedings(ctx: ProceedingsContext) {
-        return this.newEntry(EntryTypeEnum.PROCEEDINGS, ctx);
+        const idNode = ctx.IDENTIFIER();
+        return this.newEntry(EntryTypeEnum.PROCEEDINGS, ctx, idNode);
     }
 
     visitManual(ctx: ManualContext) {
-        return this.newEntry(EntryTypeEnum.MANUAL, ctx);
+        const idNode = ctx.IDENTIFIER();
+        return this.newEntry(EntryTypeEnum.MANUAL, ctx, idNode);
     }
 
     visitMastersthesis(ctx: MastersthesisContext) {
-        return this.newEntry(EntryTypeEnum.MASTERTHESIS, ctx);
+        const idNode = ctx.IDENTIFIER();
+        return this.newEntry(EntryTypeEnum.MASTERTHESIS, ctx, idNode);
     }
 
     visitPhdthesis(ctx: PhdthesisContext) {
-        return this.newEntry(EntryTypeEnum.PHDTHESIS, ctx);
+        const idNode = ctx.IDENTIFIER();
+        return this.newEntry(EntryTypeEnum.PHDTHESIS, ctx, idNode);
     }
 
     visitMisc(ctx: MiscContext) {
-        return this.newEntry(EntryTypeEnum.MISC, ctx);
+        const idNode = ctx.IDENTIFIER();
+        return this.newEntry(EntryTypeEnum.MISC, ctx, idNode);
     }
 
     visitTechreport(ctx: TechreportContext) {
-        return this.newEntry(EntryTypeEnum.TECHREPORT, ctx);
+        const idNode = ctx.IDENTIFIER();
+        return this.newEntry(EntryTypeEnum.TECHREPORT, ctx, idNode);
     }
 
     visitUnpublished(ctx: UnpublishedContext) {
-        return this.newEntry(EntryTypeEnum.UNPUBLISHED, ctx);
+        const idNode = ctx.IDENTIFIER();
+        return this.newEntry(EntryTypeEnum.UNPUBLISHED, ctx, idNode);
     }
 
     visitDataset(ctx: DatasetContext) {
-        return this.newEntry(EntryTypeEnum.DATASET, ctx);
+        const idNode = ctx.IDENTIFIER();
+        return this.newEntry(EntryTypeEnum.DATASET, ctx, idNode);
     }
 
     visitSoftware(ctx: SoftwareContext) {
-        return this.newEntry(EntryTypeEnum.SOFTWARE, ctx);
+        const idNode = ctx.IDENTIFIER();
+        return this.newEntry(EntryTypeEnum.SOFTWARE, ctx, idNode);
     }
 
     visitGenai(ctx: GenaiContext) {
-        return this.newEntry(EntryTypeEnum.GENAI, ctx);
+        const idNode = ctx.IDENTIFIER();
+        return this.newEntry(EntryTypeEnum.GENAI, ctx, idNode);
     }
 
     visitOnline(ctx: OnlineContext) {
-        return this.newEntry(EntryTypeEnum.ONLINE, ctx);
+        const idNode = ctx.IDENTIFIER();
+        return this.newEntry(EntryTypeEnum.ONLINE, ctx, idNode);
     }
 
     visitTranscript(ctx: TranscriptContext) {
-        return this.newEntry(EntryTypeEnum.TRANSCRIPT, ctx);
+        const idNode = ctx.IDENTIFIER();
+        return this.newEntry(EntryTypeEnum.TRANSCRIPT, ctx, idNode);
     }
     visitVideo(ctx: VideoContext) {
-        return this.newEntry(EntryTypeEnum.VIDEO, ctx);
+        const idNode = ctx.IDENTIFIER();
+        return this.newEntry(EntryTypeEnum.VIDEO, ctx, idNode);
     }
 
     visitAudio(ctx: AudioContext) {
-        return this.newEntry(EntryTypeEnum.AUDIO, ctx);
+        const idNode = ctx.IDENTIFIER();
+        return this.newEntry(EntryTypeEnum.AUDIO, ctx, idNode);
     }
 
     visitPatent(ctx: PatentContext) {
-        return this.newEntry(EntryTypeEnum.PATENT, ctx);
+        const idNode = ctx.IDENTIFIER();
+        return this.newEntry(EntryTypeEnum.PATENT, ctx, idNode);
     }
 
 }
