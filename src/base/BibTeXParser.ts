@@ -97,8 +97,8 @@ export class BibTeXParser extends Parser {
 	];
 
 	private static readonly _LITERAL_NAMES: Array<string | undefined> = [
-		undefined, "'@article'", "'@book'", "'@booklet'", "'@inbook'", "'@incollection'", 
-		undefined, "'@proceedings'", "'@manual'", "'@masterthesis'", "'@phdthesis'", 
+		undefined, "'@article'", undefined, "'@booklet'", undefined, undefined, 
+		undefined, undefined, "'@manual'", "'@masterthesis'", "'@phdthesis'", 
 		"'@misc'", undefined, "'@unpublished'", "'@dataset'", undefined, "'@software'", 
 		"'@genai'", "'@transcript'", "'@audio'", undefined, "'@patent'", undefined, 
 		"'='", "','", "'\"'", "'('", "')'", "'{'", "'}'", "'@'",

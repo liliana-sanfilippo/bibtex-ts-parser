@@ -1,12 +1,12 @@
 token literal names:
 null
 '@article'
-'@book'
-'@booklet'
-'@inbook'
-'@incollection'
 null
-'@proceedings'
+'@booklet'
+null
+null
+null
+null
 '@manual'
 '@masterthesis'
 '@phdthesis'
