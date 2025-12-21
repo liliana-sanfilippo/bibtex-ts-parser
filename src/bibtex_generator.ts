@@ -106,6 +106,7 @@ const setters: { [K in keyof Entry]?: (e: Entry, v: string) => void } = {
     edition:  (e,v) => { e.edition = v; },
     howpublished:  (e,v) => { e.howpublished = v; },
     organization:  (e,v) => { e.organization = v; },
+    institution:  (e,v) => { e.institution = v; },
     version:  (e,v) => { e.version = v; },
     chapter:  (e,v) => { e.chapter = v; },
     subtitle:  (e,v) => { e.subtitle = v; },
