@@ -11,6 +11,8 @@ import { ValueContext } from "./BibTeXParser";
 import { ArticleContext } from "./BibTeXParser";
 import { BookContext } from "./BibTeXParser";
 import { BookletContext } from "./BibTeXParser";
+import { IgemwikiContext } from "./BibTeXParser";
+import { BachelorthesisContext } from "./BibTeXParser";
 import { InbookContext } from "./BibTeXParser";
 import { IncollectionContext } from "./BibTeXParser";
 import { InproceedingsContext } from "./BibTeXParser";
@@ -94,6 +96,20 @@ export interface BibTeXParserVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitBooklet?: (ctx: BookletContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `BibTeXParser.igemwiki`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitIgemwiki?: (ctx: IgemwikiContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `BibTeXParser.bachelorthesis`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitBachelorthesis?: (ctx: BachelorthesisContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `BibTeXParser.inbook`.

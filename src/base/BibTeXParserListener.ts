@@ -11,6 +11,8 @@ import { ValueContext } from "./BibTeXParser";
 import { ArticleContext } from "./BibTeXParser";
 import { BookContext } from "./BibTeXParser";
 import { BookletContext } from "./BibTeXParser";
+import { IgemwikiContext } from "./BibTeXParser";
+import { BachelorthesisContext } from "./BibTeXParser";
 import { InbookContext } from "./BibTeXParser";
 import { IncollectionContext } from "./BibTeXParser";
 import { InproceedingsContext } from "./BibTeXParser";
@@ -123,6 +125,28 @@ export interface BibTeXParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitBooklet?: (ctx: BookletContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `BibTeXParser.igemwiki`.
+	 * @param ctx the parse tree
+	 */
+	enterIgemwiki?: (ctx: IgemwikiContext) => void;
+	/**
+	 * Exit a parse tree produced by `BibTeXParser.igemwiki`.
+	 * @param ctx the parse tree
+	 */
+	exitIgemwiki?: (ctx: IgemwikiContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `BibTeXParser.bachelorthesis`.
+	 * @param ctx the parse tree
+	 */
+	enterBachelorthesis?: (ctx: BachelorthesisContext) => void;
+	/**
+	 * Exit a parse tree produced by `BibTeXParser.bachelorthesis`.
+	 * @param ctx the parse tree
+	 */
+	exitBachelorthesis?: (ctx: BachelorthesisContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `BibTeXParser.inbook`.

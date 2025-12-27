@@ -1,11 +1,11 @@
 import {AbstractParseTreeVisitor} from 'antlr4ts/tree/AbstractParseTreeVisitor';
 import {BibTeXParserVisitor} from "../base/BibTeXParserVisitor";
 import {
-    ArticleContext, AudioContext,
+    ArticleContext, AudioContext, BachelorthesisContext,
     BookContext,
     BookletContext, DatasetContext,
     EntryContext,
-    FieldContext, GenaiContext,
+    FieldContext, GenaiContext, IgemwikiContext,
     InbookContext,
     IncollectionContext,
     InproceedingsContext,
@@ -89,6 +89,8 @@ export class Visitor extends AbstractParseTreeVisitor<any> implements BibTeXPars
         if (ctx.video()) return this.visitVideo(ctx.video ()!);
         if (ctx.audio()) return this.visitAudio(ctx.audio ()!);
         if (ctx.patent()) return this.visitPatent(ctx.patent ()!);
+        if (ctx.bachelorthesis()) return this.visitArticle(ctx.bachelorthesis()!);
+        if (ctx.igemwiki()) return this.visitArticle(ctx.igemwiki()!);
         throw new Error("Unknown entry type in visitEntry");
     }
 
@@ -267,6 +269,16 @@ export class Visitor extends AbstractParseTreeVisitor<any> implements BibTeXPars
     visitPatent(ctx: PatentContext) {
         const idNode = ctx.IDENTIFIER();
         return this.newEntry(EntryTypeEnum.PATENT, ctx, idNode);
+    }
+
+    visitBachelorthesis(ctx: BachelorthesisContext) {
+        const idNode = ctx.IDENTIFIER();
+        return this.newEntry(EntryTypeEnum.BACHELORTHESIS, ctx, idNode);
+    }
+
+    visitIgemwiki(ctx: IgemwikiContext) {
+        const idNode = ctx.IDENTIFIER();
+        return this.newEntry(EntryTypeEnum.IGEMWIKI, ctx, idNode);
     }
 
 }

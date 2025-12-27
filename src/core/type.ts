@@ -57,7 +57,9 @@ export enum EntryTypeEnum {
     TRANSCRIPT = "transcript",
     AUDIO = "audio",
     VIDEO = "video",
-    PATENT = "patent"
+    PATENT = "patent",
+    BACHELORTHESIS = "bachelorthesis",
+    IGEMWIKI = 'igemwiki'
 }
 
 /**
