@@ -89,8 +89,8 @@ export class Visitor extends AbstractParseTreeVisitor<any> implements BibTeXPars
         if (ctx.video()) return this.visitVideo(ctx.video ()!);
         if (ctx.audio()) return this.visitAudio(ctx.audio ()!);
         if (ctx.patent()) return this.visitPatent(ctx.patent ()!);
-        if (ctx.bachelorthesis()) return this.visitArticle(ctx.bachelorthesis()!);
-        if (ctx.igemwiki()) return this.visitArticle(ctx.igemwiki()!);
+        if (ctx.bachelorthesis()) return this.visitBachelorthesis(ctx.bachelorthesis()!);
+        if (ctx.igemwiki()) return this.visitIgemwiki(ctx.igemwiki()!);
         throw new Error("Unknown entry type in visitEntry");
     }
 
